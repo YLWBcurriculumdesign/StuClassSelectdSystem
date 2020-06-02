@@ -1,11 +1,10 @@
 let express = require("express");
+let students = require("./controllers/students")
 let app = express();
 
 app.set("view engine","ejs")
 
-app.get("/",(req,res)=>{
-    res.render("index")
-})
+app.get("/",students.showIndex)
 
 app.listen(3000,()=>{
     console.log("服务器启动了~")
