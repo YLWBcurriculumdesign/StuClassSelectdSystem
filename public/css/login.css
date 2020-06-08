@@ -3,6 +3,9 @@
   margin: 0;
   font-family: "微软雅黑";
 }
+title{
+  color: red;
+}
 body{
   background-color: #F0F4F9;
 }

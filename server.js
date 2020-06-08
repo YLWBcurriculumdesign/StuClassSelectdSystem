@@ -1,6 +1,7 @@
 let express = require("express");
 let students = require("./controllers/students")
 let app = express();
+app.use(express.static( 'public/css'))
 
 app.set("view engine","ejs")
 
