@@ -3,9 +3,7 @@
   margin: 0;
   font-family: "微软雅黑";
 }
-title{
-  color: red;
-}
+
 body{
   background-color: #F0F4F9;
 }
@@ -15,6 +13,7 @@ h1{
   letter-spacing: .1em;
   line-height: 60px;
   padding-bottom: 30px;
+    color: red;
 }
 .bgImg{
   width: 100%;

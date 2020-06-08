@@ -2,7 +2,7 @@ let express = require("express");
 let students = require("./controllers/students")
 let app = express();
 app.use(express.static( 'public/css'))
-
+app.use(express.static( 'public/img'))
 app.set("view engine","ejs")
 
 app.get("/",students.showIndex)
