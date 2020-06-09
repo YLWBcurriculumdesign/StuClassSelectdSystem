@@ -1,10 +1,9 @@
 let express = require("express");
-var bodyParser = require('body-parser')
-let index = require("./controllers/index")
 let app = express();
+var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-// 通过req.body得到客户端传递过来的数据
+let index = require("./controllers/index")
 app.set("view engine","ejs")
 app.use(express.static( 'public/css'))
 app.use(express.static( 'public/img'))
