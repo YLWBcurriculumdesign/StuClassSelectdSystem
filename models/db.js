@@ -25,6 +25,36 @@
 //     console.log('------------------------------------------------------------\n\n');
 // // });
 // connection.end();
+// function toologin(data,callback) {
+//     var mysql      = require('mysql');
+//     var connection = mysql.createConnection({
+//         host     : '39.101.177.156',
+//         user     : 'root',
+//         password : '555500',
+//         database : 'studentsclass'
+//     });
+//     connection.connect();
+//     var  sql = 'SELECT Apassword FROM admin where Aname="liwei"';
+//     connection.query(sql,function (err, result) {
+//         if(err){
+//             callback("-1");
+//             connection.end();
+//             return;
+//         }
+//         var password = "555500";
+//         if(password == result[0].Apassword){
+//             console.log("ok");
+//            callback("1");
+//             connection.end();
+//         }else {
+//             console.log("no");
+//             callback("-1");
+//             connection.end();
+//         }
+//  });
+//
+// }
+
 function toologin(data,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
@@ -37,21 +67,21 @@ function toologin(data,callback) {
     var  sql = 'SELECT Apassword FROM admin where Aname="liwei"';
     connection.query(sql,function (err, result) {
         if(err){
-           callback("0");
+            callback("-1");
             connection.end();
             return;
         }
-        var password = "555500";
+        var password = data.pwd;
         if(password == result[0].Apassword){
             console.log("ok");
-           callback("1");
+            callback("1");
             connection.end();
         }else {
             console.log("no");
-            callback("0");
+            callback("-1");
             connection.end();
         }
- });
+    });
 
 }
 exports.toologin = toologin();  // 导出
