@@ -44,10 +44,13 @@
               "name":$("#user").val(),
               "pwd":$("#password").val(),
           }, function (data) {  // data是服务器返回的数据
+
               if(data == "1"){
                   alert("成功了~")
+                  window.location.href=
               }else{
-                  alert("失败了~")
+                  alert("失败了~");
+                  res.redirect('./index.ejs');
               }
           });
       });
