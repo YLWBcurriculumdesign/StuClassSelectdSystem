@@ -64,7 +64,7 @@ function toologin(data,callback) {
         database : 'studentsclass'
     });
     connection.connect();
-    var  sql = 'SELECT Apassword FROM admin where Aname="liwei"';
+    var  sql = 'SELECT Apassword FROM admin where Aname=data.name';
     connection.query(sql,function (err, result) {
         if(err){
             callback("-1");
