@@ -11,6 +11,11 @@ app.use(express.static( 'public/img'))
 app.get("/",index.showIndex)
 app.post("/index",index.dologin)
 
+//教师
+let teacher = require("./controllers/teachers")
+app.get("/regT",teacher.showRegister)
+app.post("/regT",teacher.doRegister)
+
 app.get("/forgetPsw",index.showForget)
 
 app.listen(3000,()=>{
