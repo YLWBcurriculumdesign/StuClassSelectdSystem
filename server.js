@@ -11,6 +11,8 @@ app.use(express.static( 'public/img'))
 app.get("/",index.showIndex)
 app.post("/index",index.dologin)
 
+app.get("/forgetPsw",index.showForget)
+
 app.listen(3000,()=>{
     console.log("服务器启动了~")
 })

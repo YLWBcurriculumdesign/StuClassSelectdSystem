@@ -2,9 +2,14 @@
 exports.showIndex = (req,res)=>{
     res.render("index")
 }
+
 exports.dologin = (req,res)=>{
    console.log(req.body)
    //  db.toologin(req.body,function(info){
    //      res.send(info)
    //  })
+}
+
+exports.showForget = (req,res)=>{
+    res.render("forgetPsw")
 }
