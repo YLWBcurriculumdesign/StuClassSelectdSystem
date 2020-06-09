@@ -70,7 +70,7 @@ function toologin(data,callback) {
             callback("-1");
             connection.end();
             return;
-        }
+        }else {
         var password = data.pwd;
         if(password == result[0].Apassword){
             console.log("ok");
@@ -80,7 +80,7 @@ function toologin(data,callback) {
             console.log("no");
             callback("-1");
             connection.end();
-        }
+        }}
     });
 
 }
