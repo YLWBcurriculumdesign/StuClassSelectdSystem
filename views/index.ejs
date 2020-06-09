@@ -34,7 +34,23 @@
       </p>
       <input type="checkbox" id="remember" name="remember"> <label for="remember">记住我</label>
     </form>
-      <button type="button" id="submit" class="btn btn-primary btn-success btn-block">登录<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
+      <button type="button" id="submit" class="btn btn-primary btn-success btn-block" >登录<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
     </div>  
-  </div></body>
+  </div>
+  <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+      $("#submit").click(function () {
+          $.post("/index", {
+              "name":$("#user").val(),
+              "pwd":$("#password").val(),
+          }, function (data) {  // data是服务器返回的数据
+              if(data == "1"){
+                  alert("成功了~")
+              }else{
+                  alert("失败了~")
+              }
+          });
+      });
+  </script>
+</body>
 </html>
