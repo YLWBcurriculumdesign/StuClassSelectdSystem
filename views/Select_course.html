@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,inital-scale=1,user-scalable=no">
+    <title>选择课程</title>
+    <link rel="short icon" href="">
+
+    <!--加载外部样式单-->
+    <link rel="stylesheet" href="../public/css/Common.css">
+
+    <style>
+        .select_div{
+            float: left;
+            margin-left: 60px;
+            margin-top: 35px;
+            background: #66afe9;
+            width: 60%;
+            padding-top: 0;
+        }
+        .data_div{
+            float: right;
+            margin-right: 40px;
+            margin-top: 35px;
+            background: #66afe9;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+<span>选课</span>
+</header>
+
+<!--第二部分：循环播图-->
+<section class="first_sec">
+    <div class="first_div">
+        <div class="show_div">
+            <div class="instro_div">
+                <table style="background:gainsboro;">
+                    <tr style="font-size: 50px;text-align: left">新闻公告</tr>
+                    <td>1.什么是计算机控制系统？计算机控制系统较模拟系统有何优点？（5分）
+                        2.简述A/D和D/A分辨率与精度有何区别和联系。（5分）
+                        3.什么是带死区的PID控制算法？（5分）
+                        4.数字控制器的离散化方法都有那些？各种离散化方法都必须遵循的基本原则是什么？（5分）
+                        5.PID控制器的三种控制作用对系统性能各有什么影响？三个参数、、变化时分别如何影响系统性能？（10分）
+                        6.什么是振铃现象？在使用大林算法时，振铃现象是由哪一部分引起的？为什么？（10分）</td>
+                </table>
+            </div>
+        </div>
+        <div class="img_div">
+            <img id="bannerImg" src="../public/img/banner-1.png" alt="">
+            <!--实现轮播图的方式-->
+            <script>
+                var imgNumber = 1;
+                var bannerImg = document.getElementById("bannerImg");
+                function changeImg(){
+                    imgNumber++;
+                    if (imgNumber > 4){
+                        imgNumber = 1;
+                    }
+                    bannerImg.src = "../public/img/banner-"+imgNumber+".png"
+                }
+                setInterval(changeImg, 3000);
+            </script>
+        </div>
+    </div>
+</section>
+<!--————————————————————以上为所有页面架构的公共部分————————————————-->
+
+<!--第三部分：选课单以及个人主要信息-->
+<section>
+    <div>
+        <!--<img src="../public/img/ui_1.png" alt="">-->
+    </div>
+    <div class="select_div">
+        <p style="font-size: 30px;background: white">这是你可选的所有课程的预览信息：</p>
+        <table>
+            <span style="font-size: 25px">在这里添加后台返回的所有课程的数据进行显示预览1.什么是计算机控制系统？计算机控制系统较模拟系统有何优点？（5分）
+                        2.简述A/D和D/A分辨率与精度有何区别和联系。（5分）
+                        </span>
+        </table>
+    </div>
+    <div class="data_div">
+        <table>
+            <tr><td>姓名：</td><td>毕丰旺</td></tr>
+            <tr><td>学号：</td><td>171404050101</td></tr>
+            <tr><td>专业：</td><td>物联网工程</td></tr>
+            <tr><td>学院：</td><td>信息工程学院</td></tr>
+        </table>
+    </div>
+</section>
+
+<!--第四部分：导航栏-->
+<footer>
+    <a href="">
+        <img src="" alt="">
+        <span style="color: red">选择课程</span>
+    </a>
+    <a href="">
+        <img src="" alt="">
+        <span>选课结果</span>
+    </a>
+    <a href="">
+        <img src="" alt="">
+        <span>我的信息</span>
+    </a>
+    <a href="">
+        <img src="" alt="">
+        <span>功能4</span>
+    </a>
+    <a href="">
+        <img src="" alt="">
+        <span>功能5</span>
+    </a>
+</footer>
+
+</body>
+</html>

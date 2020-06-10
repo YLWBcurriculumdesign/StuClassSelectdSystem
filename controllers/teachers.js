@@ -1,4 +1,4 @@
-
+let tdb = require("../models/Tdb")
 exports.showRegister = (req,res)=>{
     res.render("regT")
 }
