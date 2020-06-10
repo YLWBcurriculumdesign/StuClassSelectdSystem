@@ -15,7 +15,7 @@ exports.doRegister = (req,res)=>{
             res.send(200);
         }else {
             req.session.error = "用户名或密码不正确";
-            res.send( 404 );
+            res.sendStatus( 404 );
         }
     })   
 }
