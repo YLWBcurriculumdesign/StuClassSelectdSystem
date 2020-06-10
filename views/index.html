@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>大学生网上选课系统登录</title>
-  <link href="../public/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet"  type="text/css" href="../public/css/login.css">
-    <!--<link rel="stylesheet"  type="text/css" href="bootstrap.min.css">-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+      <link rel="stylesheet"  type="text/css" href="login.css">
       <link rel="shortcut icon" href="../public/img/favicon.ico">
 </head>
 <body>
+<%- message %>
   <h1>大学生网上选课系统</h1>
   <div class="bgImg">
-    <img src="../public/img/LOGO2.png" alt="logo">
+    <img src="LOGO2.png" alt="logo">
     <!-- <img src="img/logo1.png" alt="logo"> -->
     <div class="loginMain">
     <form action="">
@@ -48,8 +48,8 @@
           // }, function (data) {  // data是服务器返回的数据
           //
           //     if(data == "1"){
-          //         alert("成功了~")          //         window.location.href ="/forgetPsw";
-
+          //         alert("成功了~")
+          //         window.location.href ="/forgetPsw";
           //         return;
           //     }else{
           //         alert("失败了~");
@@ -83,8 +83,8 @@
                   success:function(data,status){ 
                       if(status == 'success'){
 
-                          // location.href='success';
-                          alert("学生")
+                          location.href='Select_course';
+                          // alert("学生")
                       }
                   },
                   error:function(data,status,e){
@@ -123,7 +123,7 @@
                   success:function(data,status){
                       if(status == 'success'){
 
-                          location.href='Select_course';
+                          location.href='success';
                           // alert("管理员")
                       }
                   },

@@ -6,7 +6,7 @@
     <link rel="short icon" href="">
 
     <!--加载外部样式单-->
-    <link rel="stylesheet" href="../public/css/Common.css">
+    <link rel="stylesheet" href="Common.css">
 
     <style>
         .select_div{
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="img_div">
-            <img id="bannerImg" src="../public/img/banner-1.png" alt="">
+            <img id="bannerImg" src="banner-1.png" alt="">
             <!--实现轮播图的方式-->
             <script>
                 var imgNumber = 1;
@@ -59,7 +59,7 @@
                     if (imgNumber > 4){
                         imgNumber = 1;
                     }
-                    bannerImg.src = "../public/img/banner-"+imgNumber+".png"
+                    bannerImg.src = "banner-"+imgNumber+".png"
                 }
                 setInterval(changeImg, 3000);
             </script>
