@@ -11,7 +11,7 @@ connection.connect();
 
 var  addSql = 'INSERT INTO teacher(Tid,Tname,Tpassword,Tsex,Introduction) VALUES(?,?,?,?,?)';
 // var  addSqlParams = ['8888','王老师', "123456",'男', 'CN'];
-var addSqlParams = [data.tnumber,data.tnumber,data.tname,data.tpwd,data.tsex,data.tintroduction];
+var addSqlParams = [data.tnumber,data.tname,data.tpwd,data.tsex,data.tintroduction];
 
 
 //增
