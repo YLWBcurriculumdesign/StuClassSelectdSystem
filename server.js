@@ -19,7 +19,7 @@ app.use(session({
 let index = require("./controllers/index")
 //教师
 let teacher = require("./controllers/teachers")
-
+let student = require("./controllers/students")
 
 app.set("view engine","ejs");
 // 修改模板文件的后缀名为html
@@ -48,7 +48,7 @@ app.post("/index",index.dologin);
 // app.post("/regT",teacher.doRegister)
 app.get("/success",index.showsuccess)
  app.get("/forgetPsw",index.showForget)
-
+app.get("/Select_course",student.showselect)
 app.get('/logout', function(req, res){
     req.session.user = null;
     req.session.error = null;
