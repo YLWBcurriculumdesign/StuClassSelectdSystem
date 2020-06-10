@@ -6,22 +6,27 @@ var connection = mysql.createConnection({
     password : '555500',
     database : 'studentsclass'
 });
+connection.connect();
 
 
-var  addSql = 'INSERT INTO teacher(Tid,Tname,Tpassword,Tsex,Introduction) VALUES(888,?,?,?,?)';
-var  addSqlParams = ['王老师', "123456",'男', 'CN'];
+var  addSql = 'INSERT INTO teacher(Tid,Tname,Tpassword,Tsex,Introduction) VALUES(data.tnumber,?,?,?,?)';
+// var  addSqlParams = ['王老师', "123456",'男', 'CN'];
+var addSqlParams = [data.tnumber,data.tname,data.tpwd,data.tsex,data.tintroduction]
+
 //增
 connection.query(addSql,addSqlParams,function (err, result) {
         if(err){
          console.log('[INSERT ERROR] - ',err.message);
-         return;
+         callback("-1");
+        }else {
+            console.log(result)
+            console.log(data)
+            connection.end();
+            callback("1")
         }        
- 
-       console.log('--------------------------INSERT----------------------------');
-       //console.log('INSERT ID:',result.insertId);        
-       console.log('INSERT ID:',result);        
-       console.log('-----------------------------------------------------------------\n\n');  
 });
- 
-connection.end();
+
 }
+
+
+exports.add = add;

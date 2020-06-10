@@ -25,7 +25,7 @@
       <input type="password" id="password" class="input form-control" name="password" data-container="body" data-toggle="popover" data-placement="top" data-content="请正确填写密码">
       </p>
       <a href="/forgetPsw">忘记密码？</a>
-      <a href="/regT">教师注册</a>
+      <a href="/regT">添加教师</a>
       <p class="lastP">
       <label for="type">请选择身份：</label>
       <select name="typeId" class="input form-control" id="typeId">
@@ -80,7 +80,7 @@
                   url:'index',
                   type:'POST',
                   data:data,
-                  success:function(data,status){
+                  success:function(data,status){ 
                       if(status == 'success'){
 
                           // location.href='success';

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 
-var multer = require('multer');
+// var multer = require('multer');
 var session = require("express-session");
 app.use(session({
     secret:'secret',
@@ -44,8 +44,8 @@ app.use(express.static( 'public/img'));
 
 app.get("/",index.showIndex);
 app.post("/index",index.dologin);
-// app.get("/regT",teacher.showRegister)
-// app.post("/regT",teacher.doRegister)
+app.get("/regT",teacher.showRegister)
+app.post("/regT",teacher.doRegister)
 app.get("/success",index.showsuccess)
  app.get("/forgetPsw",index.showForget)
 
