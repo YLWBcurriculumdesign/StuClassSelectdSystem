@@ -3,7 +3,8 @@ exports.showIndex = (req,res)=>{
     res.render("index")
 }
 exports.dologin = (req,res)=>{
-    db.save(req.body,function(info){
+
+    db.LOGIN(req.body,function(info){
         if (info==1){
             var user={
                 username:req.body.username,
