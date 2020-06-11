@@ -6,16 +6,17 @@ exports.showRegister = (req,res)=>{
 exports.doRegister = (req,res)=>{
     console.log(req.body)
     tdb.add(req.body,function(info){
-        if (info==1){
-            req.session.error = "工号重复，请检查您的工号！";
-            res.sendStatus(200);
-        }else if(info == -2){
-            req.session.error = "工号重复，请检查您的工号！";
-            // alert("工号重复！");
-            res.sendStatus( 404 );
-        }else {
-            // alert("工号不对！");
-            res.sendStatus( 404 );
-        }
+        // if (info==1){
+        //     req.session.error = "工号重复，请检查您的工号！";
+        //     res.sendStatus(200);
+        // }else if(info == -2){
+        //     req.session.error = "工号重复，请检查您的工号！";
+        //     // alert("工号重复！");
+        //     res.sendStatus( 404 );
+        // }else {
+        //     // alert("工号不对！");
+        //     res.sendStatus( 404 );
+        // }
+        res.send(info);
     })   
 }
