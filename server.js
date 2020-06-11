@@ -10,9 +10,7 @@ app.use(session({
     secret:'secret',
     resave:true,
     saveUninitialized:false,
-    cookie:{
-        maxAge:1000*60*10 //过期时间设置(单位毫秒)
-    }
+
 }));
 
 
@@ -51,6 +49,8 @@ app.get("/success",index.showsuccess)
 app.get("/Student",index.showstudent)
 app.get("/Teacher",index.showteacher)
 app.get("/Admin",index.showadmin)
+app.get("/Admin_teacher",admin.admin_teacher)
+app.get("/Admin_student",admin.admin_student)
  app.get("/forgetPsw",index.showForget)
 app.get("/Select_course",student.showselect)
 app.get("/regT",teacher.showRegT)
