@@ -1,0 +1,16 @@
+.main table{
+             width: 500px;
+             height: 200px;
+             border: 1px solid red;
+             margin: 20px auto;
+         }
+.main table th{
+    background-color: skyblue;
+}
+ .main table th, table td{
+    border: 1px solid red;
+    text-align: center;
+}
+.main h1{
+    text-align: center;
+}

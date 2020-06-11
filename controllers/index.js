@@ -51,7 +51,7 @@ exports.showstudent=(req,res) =>{
 
 exports.showteacher=(req,res) =>{
     if(req.session.user){
-        res.render('Teacher');
+        res.render('Teacher',);
     }else{
         req.session.error = "请先登录";
         res.redirect('/');
@@ -59,7 +59,9 @@ exports.showteacher=(req,res) =>{
 }
 exports.showadmin=(req,res) =>{
     if(req.session.user){
-        res.render('Admin');
+        db.getTeacher(function(arr){
+            res.render("Admin",{"arr":arr})
+        });
     }else{
         req.session.error = "请先登录";
         res.redirect('/');
