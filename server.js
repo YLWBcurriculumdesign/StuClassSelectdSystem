@@ -20,6 +20,7 @@ let index = require("./controllers/index")
 //教师
 let teacher = require("./controllers/teachers")
 let student = require("./controllers/students")
+let admin = require("./controllers/administrator")
 
 app.set("view engine","ejs");
 // 修改模板文件的后缀名为html
@@ -53,6 +54,7 @@ app.get("/Teacher",index.showteacher)
 app.get("/Admin",index.showadmin)
  app.get("/forgetPsw",index.showForget)
 app.get("/Select_course",student.showselect)
+app.get("/regT",admin.showRegS)
 app.get('/logout', function(req, res){
     req.session.user = null;
     req.session.error = null;
