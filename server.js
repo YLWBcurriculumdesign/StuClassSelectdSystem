@@ -41,6 +41,7 @@ app.use(function(req, res, next){
 //静态资源
 app.use(express.static( 'public/css'));
 app.use(express.static( 'public/img'));
+app.use(express.static( 'public/js'));
 
 app.get("/",index.showIndex);
 app.post("/index",index.dologin);
