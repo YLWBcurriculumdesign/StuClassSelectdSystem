@@ -1,9 +1,9 @@
 let tdb = require("../models/Tdb")
-exports.showRegister = (req,res)=>{
+exports.showRegT = (req,res)=>{
     res.render("regT")
 }
 
-exports.doRegister = (req,res)=>{
+exports.doRegT = (req,res)=>{
     console.log(req.body)
     tdb.add(req.body,function(info){
         // if (info==1){

@@ -46,15 +46,19 @@ app.use(express.static( 'public/js'));
 
 app.get("/",index.showIndex);
 app.post("/index",index.dologin);
-app.get("/regT",teacher.showRegister)
-app.post("/regT",teacher.doRegister)
+
 app.get("/success",index.showsuccess)
 app.get("/Student",index.showstudent)
 app.get("/Teacher",index.showteacher)
 app.get("/Admin",index.showadmin)
  app.get("/forgetPsw",index.showForget)
 app.get("/Select_course",student.showselect)
-app.get("/regT",admin.showRegS)
+app.get("/regT",teacher.showRegT)
+app.get("/regS",admin.showRegS)
+app.get("/regC",admin.showRegC)
+app.post("/regT",teacher.doRegT)
+app.post("/regS",admin.doRegS)
+app.post("/regC",admin.doRegC)
 app.get('/logout', function(req, res){
     req.session.user = null;
     req.session.error = null;
