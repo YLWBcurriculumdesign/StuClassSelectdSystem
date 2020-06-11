@@ -18,11 +18,15 @@ var addSqlParams = [data.tnumber,data.tname,data.tpwd,data.tsex,data.tintroducti
 connection.query(addSql,addSqlParams,function (err, result) {
     console.log(addSql);
         if(err){
-            if(err.message == "ER_DUP_ENTRY"){
+            var str = err.message;
+            console.log(str.substring(0,12));
+            var substr = str.substring(0,12);
+            if(substr == "ER_DUP_ENTRY" ){
                 var err = err.message;
                 callback("-2");
                 connection.end();
             }else{
+                
                 console.log('[INSERT ERROR] - ',err.message);
                 callback("-1");
                 connection.end();
