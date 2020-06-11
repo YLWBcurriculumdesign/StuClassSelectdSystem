@@ -21,6 +21,7 @@
 
 <div class="main" style="background: beige;width: calc(100% - 60px);    padding-top: 80px;  padding-left: 60px;padding-bottom: 30px" >
     <table>
+        <thead>
         <tr>
             <th>学生姓名</th>
             <th>性别</th>
@@ -30,7 +31,9 @@
             <th>学院</th>
             <th>专业</th>
         </tr>
+        </thead>
         <% for(var i=0; i<arr.length; i++){ %>
+        <tbody>
         <tr>
             <td><%= arr[i].StudentName %></td>
             <td><%= arr[i].StudentSex %></td>
@@ -40,6 +43,7 @@
             <td><%= arr[i].college %></td>
             <td><%= arr[i].major %></td>
         </tr>
+        </tbody>
         <% } %>
     </table>
 

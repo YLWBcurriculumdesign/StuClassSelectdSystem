@@ -21,6 +21,8 @@ exports.doRegC = (req,res) =>{
     cdb.add(req.body,function(info){
         res.send(info);
     })
+}
+
 exports.admin_teacher =(reg,res)=>{
     db.getTeacher(function(arr){
         res.render("Admin",{"arr":arr})
