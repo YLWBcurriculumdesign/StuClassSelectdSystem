@@ -11,9 +11,10 @@ exports.doRegister = (req,res)=>{
             res.sendStatus(200);
         }else if(info == -2){
             req.session.error = "工号重复，请检查您的工号！";
-            alert("工号重复！")
+            // alert("工号重复！");
             res.sendStatus( 404 );
         }else {
+            // alert("工号不对！");
             res.sendStatus( 404 );
         }
     })   
