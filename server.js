@@ -48,6 +48,9 @@ app.post("/index",index.dologin);
 app.get("/regT",teacher.showRegister)
 app.post("/regT",teacher.doRegister)
 app.get("/success",index.showsuccess)
+app.get("/Student",index.showstudent)
+app.get("/Teacher",index.showteacher)
+app.get("/Admin",index.showadmin)
  app.get("/forgetPsw",index.showForget)
 app.get("/Select_course",student.showselect)
 app.get('/logout', function(req, res){

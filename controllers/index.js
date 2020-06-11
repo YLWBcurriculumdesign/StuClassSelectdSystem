@@ -40,3 +40,28 @@ exports.showsuccess=(req,res)=>{
         res.redirect('/');
     }
 }
+exports.showstudent=(req,res) =>{
+    if(req.session.user){
+        res.render('Student');
+    }else{
+        req.session.error = "请先登录";
+        res.redirect('/');
+    }
+}
+
+exports.showteacher=(req,res) =>{
+    if(req.session.user){
+        res.render('Teacher');
+    }else{
+        req.session.error = "请先登录";
+        res.redirect('/');
+    }
+}
+exports.showadmin=(req,res) =>{
+    if(req.session.user){
+        res.render('Admin');
+    }else{
+        req.session.error = "请先登录";
+        res.redirect('/');
+    }
+}
