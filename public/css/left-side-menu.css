@@ -14,7 +14,7 @@ a{text-decoration:none;}
 
 
 .left-side-menu {-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none; user-select: none; }
-.left-side-menu{height: calc(100% - 80px);width: 220px;}
+.left-side-menu{height: calc(100% - 80px);width: 220px; left:0;top: 80px;position: fixed;}
 .lsm-expand-btn{height: 65px;}
 .lsm-container {height: calc(100% - 65px); transition: all .3s;z-index: 100}
 
