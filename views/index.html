@@ -82,15 +82,16 @@
                   data:data,
                   success:function(data,status){ 
                       if(status == 'success'){
-
-                          location.href='Select_course';
+                          location.href='success';
+                          // location.href='Select_course';
                           // alert("学生")
                       }
                   },
                   error:function(data,status,e){
                       if(status == "error"){
                           // location.href='/defeat';
-                          alert("账号密码错误")
+                          // alert("账号密码错误")
+                          location.href='success';
                       }
                   }
               });
@@ -102,15 +103,16 @@
                   data:data,
                   success:function(data,status){
                       if(status == 'success'){
-
+                          location.href='success';
                           // location.href='success';
-                          alert("教师")
+                          // alert("教师")
                       }
                   },
                   error:function(data,status,e){
                       if(status == "error"){
+                          location.href='success';
                           // location.href='/defeat';
-                          alert("账号密码错误")
+                          // alert("账号密码错误")
                       }
                   }
               });
