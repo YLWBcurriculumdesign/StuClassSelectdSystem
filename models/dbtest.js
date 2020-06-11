@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     database : 'studentsclass'
 });
 connection.connect();
-var  sql = 'SELECT * FROM teacher';
+var  sql = 'SELECT * FROM studata';
 //查
 connection.query(sql,function (err, result) {
     if(err){
@@ -18,6 +18,6 @@ connection.query(sql,function (err, result) {
     console.log(result);
 
     console.log('------------------------------------------------------------\n\n');
-    console.log(result[0].Tid);
-    console.log(result[3].Tid);
+    // console.log(result[0].Tid);
+    // console.log(result[3].Tid);
 })

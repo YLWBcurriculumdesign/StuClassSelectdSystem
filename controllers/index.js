@@ -67,3 +67,5 @@ exports.showadmin=(req,res) =>{
         res.redirect('/');
     }
 }
+
+
