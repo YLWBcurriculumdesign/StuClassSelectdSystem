@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>学生信息</title>
+    <title>课程信息</title>
 
     <link rel="stylesheet" type="text/css" href="left-side-menu.css">
     <link rel="stylesheet" type="text/css" href="iconfont.css">
@@ -21,29 +21,27 @@
 
 <div class="main" style="background: beige;width: calc(100% - 60px);    padding-top: 80px;  padding-left: 60px;padding-bottom: 30px" >
     <table>
-        
+
         <tr>
-            <th>学生姓名</th>
-            <th>性别</th>
-            <th>学号</th>
-            <th>密码</th>
-            <th>年龄</th>
-            <th>学院</th>
-            <th>专业</th>
+            <th>课程编号</th>
+            <th>课程名称</th>
+            <th>课程类别</th>
+            <th>课程日期</th>
+            <th>课程时间</th>
+            <th>课程简介</th>
         </tr>
-        
+
         <% for(var i=0; i<arr.length; i++){ %>
-        
+
         <tr>
-            <td><%= arr[i].StudentName %></td>
-            <td><%= arr[i].StudentSex %></td>
-            <td><%= arr[i].StudentID %></td>
-            <td><%= arr[i].StudentPWD %></td>
-            <td><%= arr[i].StudentAge %></td>
-            <td><%= arr[i].college %></td>
-            <td><%= arr[i].major %></td>
+            <td><%= arr[i].Cid %></td>
+            <td><%= arr[i].Cname %></td>
+            <td><%= arr[i].Ctype %></td>
+            <td><%= arr[i].Cweek %></td>
+            <td><%= arr[i].Ctime %></td>
+            <td><%= arr[i].Cintroduction %></td>
         </tr>
-        
+
         <% } %>
     </table>
 
@@ -84,7 +82,7 @@
                         <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>学生管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
 
-                            <li><a class="active"  href="javascript:;"><span>学生名单</span></a></li>
+                            <li><a  href="/Admin_student"><span>学生名单</span></a></li>
                             <li><a href="/regS"><span>添加学生信息</span></a></li>
                             <li><a href="javascript:;"><span>删除学生信息</span></a></li>
                             <li><a href="javascript:;"><span>修改学生信息</span></a></li>
@@ -96,7 +94,7 @@
                         <ul>
 
 
-                            <li><a  href="/Admin_course"><span>课程列表</span></a></li>
+                            <li><a  class="active"   href="javascript:;"><span>课程列表</span></a></li>
                             <li><a href="javascript:;"><span>添加课程信息</span></a></li>
                             <li><a href="javascript:;"><span>删除课程信息</span></a></li>
                             <li><a href="javascript:;"><span>修改课程信息</span></a></li>

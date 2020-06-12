@@ -1,4 +1,5 @@
 let db = require("../models/db")
+let sdb = require("../models/sdb")
 exports.showIndex = (req,res)=>{
     res.render("index")
 }
@@ -42,7 +43,9 @@ exports.showsuccess=(req,res)=>{
 }
 exports.showstudent=(req,res) =>{
     if(req.session.user){
-        res.render('Student');
+        sdb.getStudent(req.session,function(arr){
+            res.render("Student",{"arr":arr})
+        });
     }else{
         req.session.error = "请先登录";
         res.redirect('/');
