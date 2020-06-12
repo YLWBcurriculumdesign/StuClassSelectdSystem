@@ -14,11 +14,11 @@ app.use(session({
 }));
 
 
-let index = require("./controllers/index")
+let index = require("./controllers/index");
 //教师
-let teacher = require("./controllers/teachers")
-let student = require("./controllers/students")
-let admin = require("./controllers/administrator")
+let teacher = require("./controllers/teachers");
+let student = require("./controllers/students");
+let admin = require("./controllers/administrator");
 
 app.set("view engine","ejs");
 // 修改模板文件的后缀名为html
@@ -44,22 +44,23 @@ app.use(express.static( 'public/js'));
 
 app.get("/",index.showIndex);
 app.post("/index",index.dologin);
-
-app.get("/success",index.showsuccess)
-app.get("/Student",index.showstudent)
-app.get("/Teacher",index.showteacher)
-app.get("/Admin",index.showadmin)
-app.get("/Admin_teacher",admin.admin_teacher)
-app.get("/Admin_student",admin.admin_student)
-app.get("/Admin_course",admin.admin_course)
- app.get("/forgetPsw",index.showForget)
-app.get("/Select_course",student.showselect)
-app.get("/regT",teacher.showRegT)
-app.get("/regS",admin.showRegS)
-app.get("/regC",admin.showRegC)
-app.post("/regT",teacher.doRegT)
-app.post("/regS",admin.doRegS)
-app.post("/regC",admin.doRegC)
+app.get("/success",index.showsuccess);
+app.get("/Student",index.showstudent);
+app.get("/Studentmessage",student.studentmessage);
+app.get("/Student_select_course",student.Student_select_course)
+app.get("/Teacher",index.showteacher);
+app.get("/Admin",index.showadmin);
+app.get("/Admin_teacher",admin.admin_teacher);
+app.get("/Admin_student",admin.admin_student);
+app.get("/Admin_course",admin.admin_course);
+app.get("/forgetPsw",index.showForget);
+app.get("/Select_course",student.showselect);
+app.get("/regT",teacher.showRegT);
+app.get("/regS",admin.showRegS);
+app.get("/regC",admin.showRegC);
+app.post("/regT",teacher.doRegT);
+app.post("/regS",admin.doRegS);
+app.post("/regC",admin.doRegC);
 app.get('/logout', function(req, res){
     req.session.user = null;
     req.session.error = null;
