@@ -34,3 +34,8 @@ exports.admin_student =(reg,res)=>{
         res.render("Admin_student",{"arr":arr})
     });
 }
+exports.admin_course =(reg,res)=>{
+    db.getCourse(function(arr){
+        res.render("Admin_course",{"arr":arr})
+    });
+}

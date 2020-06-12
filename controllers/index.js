@@ -1,11 +1,13 @@
-let db = require("../models/db")
+let db = require("../models/db");
+let sdb = require("../models/sdb");
+let Tdb = require("../models/Tdb");
 exports.showIndex = (req,res)=>{
     res.render("index")
 }
 exports.dologin = (req,res)=>{
 
     db.LOGIN(req.body,function(info){
-        if (info==1){
+        if (info == 1){
             var user={
                 username:req.body.username,
                 password:req.body.password
@@ -42,7 +44,9 @@ exports.showsuccess=(req,res)=>{
 }
 exports.showstudent=(req,res) =>{
     if(req.session.user){
-        res.render('Student');
+        sdb.getStudent(req.session,function(arr){
+            res.render("Student",{"arr":arr})
+        });
     }else{
         req.session.error = "请先登录";
         res.redirect('/');
@@ -51,7 +55,9 @@ exports.showstudent=(req,res) =>{
 
 exports.showteacher=(req,res) =>{
     if(req.session.user){
-        res.render('Teacher',);
+        Tdb.getTeacher(req.session,function(arr){
+            res.render("Teacher",{"arr":arr})
+        });
     }else{
         req.session.error = "请先登录";
         res.redirect('/');

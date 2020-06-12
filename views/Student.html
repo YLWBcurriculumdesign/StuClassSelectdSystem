@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="left-side-menu.css">
     <link rel="stylesheet" type="text/css" href="iconfont.css">
-
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.slimscroll.min.js"></script>
     <script type="text/javascript" src="left-side-menu.js"></script>
@@ -14,16 +14,49 @@
 </head>
 <body>
 
-<div class ="top"  style="width: 100%;height: 80px;background-color: #397bc5;left:0;top:0;position: fixed;text-align: center;"><h1>恭喜用户<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
+<div class ="top"  ><h1>恭喜用户<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
 
 
-<div style="background: beige;width: calc(100% - 60px);    padding-top: 80px;  padding-left: 60px;padding-bottom: 30px" >
+<div class="di" class="main" >
+    <table>
 
+        <tr>
+            <th>学生用户</th>
+            <th>个人信息</th>
+        </tr>
 
+        <% for(var i=0; i< arr.length; i++){ %>
+
+        <tr>
+           <td>学生姓名</td> <td><%= arr[i].StudentName %></td>
+        </tr>
+        <tr>
+            <td>学生性别</td>  <td><%= arr[i].StudentSex %></td>
+        </tr>
+        <tr>
+            <td>学生学号</td>       <td><%= arr[i].StudentID %></td>
+        </tr>
+
+        <tr>
+            <td>学生密码</td>    <td><%= arr[i].StudentPWD %></td>
+        </tr>
+
+        <tr>
+            <td>学生年龄</td>    <td><%= arr[i].StudentAge %></td>
+        </tr>
+
+        <tr>
+            <td>学生学院</td>    <td><%= arr[i].college %></td>
+        </tr>
+
+        <tr>
+            <td>学生专业</td>    <td><%= arr[i].major %></td>
+        </tr>
+        <% } %>
+    </table>
 
 </div>
 
-</div>
 <div class="left-side-menu" >
     <div class="lsm-expand-btn">
         <div class="lsm-mini-btn">
@@ -72,7 +105,7 @@
                             <li class="lsm-sidebar-item">
                                 <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>选课程</span><i class="my-icon lsm-sidebar-more"></i></a>
                                 <ul >
-                                    <li><a href="javascript:;"><span>正选</span></a></li>
+                                    <li><a href="/Student_select_course"><span>正选</span></a></li>
                                     <li><a href="javascript:;"><span>退选</span></a></li>
                                 </ul>
                             </li>
