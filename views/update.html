@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>选课主页</title>
+
+    <link rel="stylesheet" type="text/css" href="left-side-menu.css">
+    <link rel="stylesheet" type="text/css" href="iconfont.css">
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="left-side-menu.js"></script>
+
+</head>
+<body>
+
+<div class ="top"  style="width: 100%;height: 80px;background-color: #397bc5;left:0;top:0;position: fixed;text-align: center;"><h1>恭喜用户<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
+
+
+<div style="background: beige;width: calc(100% - 60px);    padding-top: 80px;  padding-left: 60px;padding-bottom: 30px" >
+
+
+
+</div>
+
+</div>
+<div class="left-side-menu" >
+    <div class="lsm-expand-btn">
+        <div class="lsm-mini-btn">
+            <label>
+                <input type="checkbox" checked="checked">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="30" />
+                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
+                    <path class="line--2" d="M0 50h80" />
+                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
+                </svg>
+            </label>
+
+        </div>
+        <!--        <input type="text">-->
+    </div>
+
+    <div class="lsm-container">
+        <div class="lsm-scroll" >
+            <div class="lsm-sidebar">
+                <ul>
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>学生信息</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <ul>
+                            <li><a href="javascript:;"><span>基本信息</span></a></li>
+                            <li><a class="active" href="./update"><span>修改个人信息</span></a></li>
+                            <li><a href="javascript:;"><span>修改密码</span></a></li>
+                            <!-- <li class="lsm-sidebar-item">
+                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>二级菜单11</span><i class="my-icon lsm-sidebar-more"></i></a>
+                                <ul>
+                                    <li><a href="javascript:;"><span>地爆天星</span></a></li>
+                                </ul>
+                            </li>
+
+                            <li class="lsm-sidebar-item">
+                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>二级菜单22</span><i class="my-icon lsm-sidebar-more"></i></a>
+                                <ul >
+                                    <li><a href="javascript:;"><span>血继限界</span></a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </li>
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>网上选课</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <ul>
+                            <li class="lsm-sidebar-item">
+                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>选课程</span><i class="my-icon lsm-sidebar-more"></i></a>
+                                <ul >
+                                    <li><a href="javascript:;"><span>正选</span></a></li>
+                                    <li><a href="javascript:;"><span>退选</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="javascript:;"><span>个人课表</span></a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_3"></i><span>退出系统</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <ul>
+                            <li><a href="logout"><span>确认退出</span></a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div style="text-align:center;">
+    <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
+</div>
+<div style="margin: 100px 200px 400px 650px;background: white;width: 300px;height: 400px;padding-left: 50px;border-radius: 20px">
+    <p style="font-size: 20px;color: #2e6da4"><em>在这里更改你的个人信息：</em></p>
+    <script>
+        var myid = user.username;
+        document.getElementById(stuid).value = myid;
+    </script>
+    <ul>
+        <!--<%= user.username %>-->
+        <li class="data_li">姓名：<input type="text" value="" id="stuname"></li>
+        <li class="data_li">学号：<input type="text" value="" id="stuid"></li>
+        <li class="data_li">性别：<input type="text" value="" id="stusex"></li>
+        <li class="data_li">年龄：<input type="text" value="" id="stuage"></li>
+        <li class="data_li">学院：<input type="text" value="" id="college"></li>
+        <li class="data_li">专业：<input type="text" value="" id="major"></li>
+        <li style="margin-top: 45px;margin-left: 175px"><input id="add" type="button" value="修改" style="background-color: blueviolet; border-radius:3px;border: #afd9ee 1px solid "></li>
+    </ul>
+</div>
+
+//处理更改
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    $("#add").click(function () {
+        $.post("/updata", {
+            "stuname":$("#stuname").val(),
+            "stusex":$("#stusex").val(),
+            "stuid":$("#stuid").val(),
+            "stuage":$("#stuage").val(),
+            "college":$("#college").val(),
+            "major":$("#major").val(),
+        }, function (data) {  // data是服务器返回的数据
+            if(data == "1"){
+                alert("更改学生成功了~")
+            }else{
+                alert("更改学生失败了~")
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
