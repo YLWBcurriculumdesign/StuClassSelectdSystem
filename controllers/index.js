@@ -3,7 +3,7 @@ let sdb = require("../models/sdb");
 let Tdb = require("../models/Tdb");
 exports.showIndex = (req,res)=>{
     res.render("index")
-}
+};
 exports.dologin = (req,res)=>{
 
     db.LOGIN(req.body,function(info){
@@ -18,7 +18,7 @@ exports.dologin = (req,res)=>{
             req.session.error = "用户名或密码不正确";
             res.send( 404 );
         }
-    })
+    });
     // var user={
     //     username:'admin',
     //     password:'admin'
@@ -41,17 +41,17 @@ exports.showsuccess=(req,res)=>{
         req.session.error = "请先登录";
         res.redirect('/');
     }
-}
+};
 exports.showstudent=(req,res) =>{
     if(req.session.user){
-        sdb.getStudent(req.session,function(arr){
+        db.getStudent(req.session,function(arr){
             res.render("Student",{"arr":arr})
         });
     }else{
         req.session.error = "请先登录";
         res.redirect('/');
     }
-}
+};
 
 exports.showteacher=(req,res) =>{
     if(req.session.user){
@@ -62,7 +62,7 @@ exports.showteacher=(req,res) =>{
         req.session.error = "请先登录";
         res.redirect('/');
     }
-}
+};
 exports.showadmin=(req,res) =>{
     if(req.session.user){
         db.getTeacher(function(arr){
@@ -72,6 +72,6 @@ exports.showadmin=(req,res) =>{
         req.session.error = "请先登录";
         res.redirect('/');
     }
-}
+};
 
 
