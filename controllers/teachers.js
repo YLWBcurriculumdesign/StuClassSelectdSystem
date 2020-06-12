@@ -20,3 +20,15 @@ exports.doRegT = (req,res)=>{
         res.send(info);
     })   
 }
+
+exports.teachermessage=(req,res)=>{
+    tdb.getTeacher(req.session,function(arr){
+        res.render("Teacher",{"arr":arr})
+    })
+};
+
+exports.teacher_mycourse=(req,res)=>{
+    tdb.getTeachercourse(req.session,function(arr){
+        res.render("Teacher_my_cuorse",{"arr":arr})
+    })
+};

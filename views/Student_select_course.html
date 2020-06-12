@@ -19,13 +19,14 @@
 
 <div class="main"  >
     <table>
-        
+
         <tr>
             <th>课程编号</th>
             <th>课程名称</th>
             <th>课程类别</th>
             <th>课程日期</th>
             <th>课程时间</th>
+            <th>教师</th>
             <th>课程简介</th>
             <th>选择</th>
         </tr>
@@ -38,6 +39,7 @@
             <td id='ctype<%=i %>'><%= arr[i].Ctype %></td>
             <td id='cweek<%=i %>'><%= arr[i].Cweek %></td>
             <td id='ctime<%=i %>'><%= arr[i].Ctime %></td>
+            <td id='cteacher<%=i %>'><%= arr[i].Tname %></td>
             <td id='ciintroduction<%=i %>'><%= arr[i].Cintroduction %></td>
             <td><input type="checkbox" id='check<%=i %>'value='<%=i %>' /></td>
         </tr>
@@ -72,7 +74,7 @@
                     <li class="lsm-sidebar-item">
                         <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>学生信息</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
-                            <li><a  href="/Studentmessage"><span>基本信息</span></a></li>
+                            <li><a  href="/Student_message"><span>基本信息</span></a></li>
                             <li><a href="javascript:;"><span>修改个人信息</span></a></li>
                             <li><a href="javascript:;"><span>修改密码</span></a></li>
                             <!-- <li class="lsm-sidebar-item">

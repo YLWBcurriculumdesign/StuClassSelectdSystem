@@ -115,7 +115,7 @@ function getCourse(callback) {
         database : 'studentsclass'
     });
     connection.connect();
-    var  sql = 'SELECT * FROM course';
+    var  sql = 'select * from course,teacher where  course.Cteacher=teacher.Tid';
 //查
     connection.query(sql,function (err, result) {
         if (err) throw err;
