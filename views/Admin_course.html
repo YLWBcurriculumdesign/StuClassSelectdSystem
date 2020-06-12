@@ -28,6 +28,7 @@
             <th>课程类别</th>
             <th>课程日期</th>
             <th>课程时间</th>
+            <th>教师</th>
             <th>课程简介</th>
         </tr>
 
@@ -39,6 +40,7 @@
             <td><%= arr[i].Ctype %></td>
             <td><%= arr[i].Cweek %></td>
             <td><%= arr[i].Ctime %></td>
+            <td><%= arr[i].Tname %></td>
             <td><%= arr[i].Cintroduction %></td>
             <td><input type="checkbox" id='<%=i %>'value='<%=i %>' /></td>
         </tr>
@@ -73,7 +75,7 @@
                     <li class="lsm-sidebar-item">
                         <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>教师管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
-                            <li><a  href="/Admin_teacher"><span>教师名单</span></a></li>
+                            <li><a  href="/Admin"><span>教师名单</span></a></li>
                             <li><a href="/regT"><span>新教师登记</span></a></li>
                             <li><a href="javascript:;"><span>离职教师登记</span></a></li>
                             <li><a href="javascript:;"><span>修改教师信息</span></a></li>

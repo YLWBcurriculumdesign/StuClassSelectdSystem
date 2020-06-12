@@ -61,5 +61,29 @@ function getTeacher(session,callback) {
     });
 
 }
+function getTeachercourse(session,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM course WHERE Cteacher='+session.user.username;
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
+
+    });
+
+}
+
+
+
+
+exports.getTeachercourse = getTeachercourse;
 exports.getTeacher = getTeacher;
 exports.add = add;
