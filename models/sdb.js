@@ -8,7 +8,6 @@ function add(data,callback) {
     });
     connection.connect();
     
-    
     var  addSql = 'INSERT INTO studata(StudentID,StudentName,StudentSex,Studentpwd,StudentAge,college,major) VALUES(?,?,?,?,?,?,?)';
     // var  addSqlParams = ['171408','李俊', "男",'123465', '20','信息工程学院','物联网'];
     var addSqlParams = [data.snumber,data.sname,data.ssex,data.spwd,data.sage,data.scollege,data.smajor];
@@ -41,11 +40,10 @@ function add(data,callback) {
     
     }
 
-
     exports.add = add;
 
 //学生修改个人信息
-function UPDATA(data,callback) {
+function UPDATE(data,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
         host     : '39.101.177.156',
@@ -68,9 +66,7 @@ function UPDATA(data,callback) {
         connection.end();
     });
 }
-
-
-
+exports.UPDATE = UPDATE;  // 导出
 
 
 function getStudent(session,callback) {
@@ -92,6 +88,4 @@ function getStudent(session,callback) {
     });
 
 }
-
-exports.UPDATA = UPDATA;  // 导出
 exports.getStudent = getStudent;
