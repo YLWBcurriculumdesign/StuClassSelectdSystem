@@ -5,6 +5,9 @@ exports.showselect=(req,res)=>{
 };
 
 
+
+
+
 exports.Student_select_course =(req,res)=>{
     db.getCourse(function(arr){
         res.render("Student_select_course",{"arr":arr})
