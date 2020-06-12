@@ -46,10 +46,8 @@ app.get("/",index.showIndex);
 app.post("/index",index.dologin);
 app.get("/success",index.showsuccess);
 app.get("/Student",index.showstudent);
-app.get("/Student_message",student.studentmessage);
 app.get("/Student_select_course",student.Student_select_course)
 app.get("/Teacher",index.showteacher);
-app.get("/Teacher_massage",teacher.teachermessage);
 app.get("/Teacher_my_course",teacher.teacher_mycourse);
 app.get("/Admin",index.showadmin);
 app.get("/Admin_teacher",admin.admin_teacher);
