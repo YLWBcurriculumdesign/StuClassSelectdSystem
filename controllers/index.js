@@ -44,7 +44,7 @@ exports.showsuccess=(req,res)=>{
 };
 exports.showstudent=(req,res) =>{
     if(req.session.user){
-        db.getStudent(req.session,function(arr){
+        sdb.getStudent(req.session,function(arr){
             res.render("Student",{"arr":arr})
         });
     }else{

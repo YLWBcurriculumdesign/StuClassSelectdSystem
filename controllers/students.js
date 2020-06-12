@@ -5,6 +5,9 @@ exports.showselect=(req,res)=>{
 };
 
 
+
+
+
 exports.Student_select_course =(req,res)=>{
     db.getCourse(function(arr){
         res.render("Student_select_course",{"arr":arr})
@@ -18,12 +21,6 @@ exports.doupdate=(req,res)=>{
         res.send(info);
     })
 };
-
- exports.Student_select_course =(req,res)=>{
-                db.getCourse(function(arr){
-                    res.render("Student_select_course",{"arr":arr})
-                })
-            };
 
 //渲染一个显示学生修改个人信息的页面
 exports.update=(req,res)=> {
