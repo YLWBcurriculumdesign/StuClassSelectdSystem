@@ -8,7 +8,7 @@
 </head>
 <body>
   <header><h3>大学生网上选课系统</h3></header>
-  <h1 style="display: inline-block;">添加课程信息啊 &nbsp;&nbsp;&nbsp;&nbsp;</h1>
+  <h1 style="display: inline-block;">添加课程信息 &nbsp;&nbsp;&nbsp;&nbsp;</h1>
     <div>
         <ul>
             <li>
@@ -23,15 +23,22 @@
                 <label for="">课程类型：</label>
                 <input type="text" name="ctype" id="ctype">
             </li>
-            <!-- <li>
-                性别：
-                <input type="radio" name="sex" value="男">男
-                <input type="radio" name="sex" value="女">女
-            </li> -->
+            <li>
+              <label for="">课程日期：</label>
+              <input type="text" name="cweek" id="cweek">
+          </li>
+          <li>
+              <label for="">课程时间：</label>
+              <input type="text" name="ctime" id="ctime">
+          </li>
             <li>
                 <label for="">课程简介：</label>
                 <input type="text" name="cintroduction" id="cintroduction">
             </li>
+            <li>
+              <label for="">教师工号：</label>
+              <input type="text" name="cteacher" id="cteacher">
+          </li>
             <li>
                 <input id="add" type="button" value="添加" id="btn">
             </li>
@@ -46,13 +53,17 @@
       "cnumber":$('#cnumber').val(),
       "cname":$('#cname').val(),
       "ctype":$('#ctype').val(),
-    //   "tsex":$("input[name=sex]:checked").val(),
+      "cweek":$('#cweek').val(),
+      "ctime":$('#ctime').val(),
+      "cteacher":$('#cteacher').val(),
       "cintroduction":$('#cintroduction').val(),
     },function (data) {  // data是服务器向客户端返回的数据info
             if(data == "1"){
                 alert("添加成功")
             }else if(data == "-2"){
                 alert("课程号重复，请您重新输入！")
+            }else if(data == "-3"){
+                alert("没有该工号，请检查您的工号！")
             }else{
                 alert("添加失败")
             }
@@ -61,3 +72,4 @@
 </script>
 
 </html>
+

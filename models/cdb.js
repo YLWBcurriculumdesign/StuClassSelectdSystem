@@ -9,9 +9,9 @@ function add(data,callback) {
     connection.connect();
     
     
-    var  addSql = 'INSERT INTO course(Cid,Cname,Ctype,Cintroduction) VALUES(?,?,?,?)';
+    var  addSql = 'INSERT INTO course(Cid,Cname,Ctype,Cweek,Ctime,Cintroduction,Cteacher) VALUES(?,?,?,?,?,?,?)';
     // var  addSqlParams = ['8888','王老师', "123456",'男', 'CN'];
-    var addSqlParams = [data.cnumber,data.cname,data.ctype,data.cintroduction];
+    var addSqlParams = [data.cnumber,data.cname,data.ctype,data.cweek,data.ctime,data.cintroduction,data.cteacher];
     
     
     //增
@@ -24,6 +24,10 @@ function add(data,callback) {
                 if(substr == "ER_DUP_ENTRY" ){
                     var err = err.message;
                     callback("-2");
+                    connection.end();
+                }else if(substr == "ER_NO_REFERE" ){
+                    var err = err.message;
+                    callback("-3");
                     connection.end();
                 }else{
                     
