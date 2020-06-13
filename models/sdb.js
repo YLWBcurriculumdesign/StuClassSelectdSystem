@@ -39,8 +39,8 @@ function add(data,callback) {
     });
     
     }
-    exports.add = add;
 
+    exports.add = add;
 
 //学生修改个人信息
 function UPDATE(data,callback) {
@@ -58,7 +58,6 @@ function UPDATE(data,callback) {
     connection.query(updataSql,updataSqlParams,function (err, result) {
         if(err){
             var str = err.message;
-            console.log(str);
             callback("-1");
             connection.end();
         }
@@ -68,6 +67,33 @@ function UPDATE(data,callback) {
     });
 }
 exports.UPDATE = UPDATE;  // 导出
+//学生更改密码
+function UPDATEpwd(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var updataSql = 'UPDATE studata SET StudentPWD = ? WHERE StudentID = ?';
+    var updataSqlParams = [data.stupwd,data.stuid];
+
+    connection.query(updataSql,updataSqlParams,function (err, result) {
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.UPDATEpwd = UPDATEpwd;  // 导出
+
 
 //学生更改密码
 function UPDATEpwd(data,callback) {
@@ -113,6 +139,29 @@ function getStudent(session,callback) {
         if (err) throw err;
         connection.end();
         callback(result);
+
     });
+
 }
-exports.getStudent = getStudent; //当前登录学生信息
+exports.getStudent = getStudent;
+
+function getStudentcourse (session,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM course,sac WHERE course.Cid=sac.CID and sac.SID='+session.user.username;
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
+
+    });
+
+}
+exports.getStudentcourse = getStudentcourse;
