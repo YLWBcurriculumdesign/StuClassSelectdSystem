@@ -18,10 +18,11 @@ exports.doupdate=(req,res)=>{
     // res.redirect("/update");
 };
 
-// // 渲染一个显示学生修改个人信息的页面
-// exports.update=(req,res)=> {
-//     sdb.getStudata(req.body,function(arr){
-//         res.render("update",{"arr":arr})
-//     });
-//     // res.render('update');
-// };
+//渲染修改信息页面
+exports.showstudata=(req,res) =>{
+    if(req.session.user){
+        sdb.getStudent(req.session,function(arr){
+            res.render("STUupdate",{"arr":arr})
+        });
+    }
+};

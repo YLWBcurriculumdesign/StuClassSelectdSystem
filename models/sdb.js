@@ -69,7 +69,6 @@ function UPDATE(data,callback) {
 }
 exports.UPDATE = UPDATE;  // 导出
 
-
 function getStudent(session,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
