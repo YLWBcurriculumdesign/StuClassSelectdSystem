@@ -42,6 +42,15 @@ exports.showsuccess=(req,res)=>{
         res.redirect('/');
     }
 };
+
+exports.showstudata=(req,res) =>{
+    if(req.session.user){
+        sdb.getStudent(req.session,function(arr){
+            res.render("update",{"arr":arr})
+        });
+    }
+};
+
 exports.showstudent=(req,res) =>{
     if(req.session.user){
         sdb.getStudent(req.session,function(arr){
