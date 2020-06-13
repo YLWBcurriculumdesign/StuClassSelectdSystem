@@ -17,13 +17,6 @@ exports.doupdate=(req,res)=>{
     })
     // res.redirect("/update");
 };
-exports.doupdate=(req,res)=>{
-    sdb.UPDATE(req.body,function(info) {
-        res.send(info);
-    })
-    // res.redirect("/update");
-};
-
 //渲染修改信息页面
 exports.showstudata=(req,res) =>{
     if(req.session.user){
