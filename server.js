@@ -48,6 +48,7 @@ app.post("/index",index.dologin);
 app.get("/success",index.showsuccess)
 app.get("/Student",index.showstudent)
 app.get("/Teacher",index.showteacher)
+app.get("/Teacher_my_course",teacher.teacher_mycourse)
 app.get("/Admin",index.showadmin)
 app.get("/Admin_teacher",admin.admin_teacher)
 app.get("/Admin_student",admin.admin_student)
