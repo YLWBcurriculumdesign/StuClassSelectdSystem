@@ -60,8 +60,12 @@ app.get("/regT",teacher.showRegT);
 app.get("/regS",admin.showRegS);
 app.get("/regC",admin.showRegC);
 //修改个人信息
-app.get("/update",student.update);
-app.post("/update",student.doupdate);
+app.get("/STUupdate",student.showstudata)
+app.post("/STUupdate",student.doupdate)
+app.get("/SUpassword",student.showstupwd)
+app.post("/SUpassword",student.doupdatepwd)
+app.get("/TEAupdate",teacher.showteadata)
+app.post("/TEAupdate",teacher.doupdate)
 app.post("/regT",teacher.doRegT);
 app.post("/regS",admin.doRegS);
 app.post("/regC",admin.doRegC);

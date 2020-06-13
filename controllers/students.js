@@ -25,6 +25,24 @@ exports.showstudata=(req,res) =>{
         });
     }
 };
+
+//渲染一个处理学生修改密码的逻辑
+exports.doupdatepwd=(req,res)=>{
+    sdb.UPDATEpwd(req.body,function(info) {
+        res.send(info);
+    })
+    // res.redirect("/update");
+};
+
+//渲染修改密码页面
+exports.showstupwd=(req,res) =>{
+    if(req.session.user){
+        sdb.getStudent(req.session,function(arr){
+            res.render("SUpassword",{"arr":arr})
+        });
+    }
+};
+
 exports.student_my_course=(req,res)=>{
     res.render("Student_my_course")
 };
