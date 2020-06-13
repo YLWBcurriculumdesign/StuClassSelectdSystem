@@ -43,3 +43,20 @@ exports.teacher_mycourse=(req,res)=>{
         res.render("Teacher_my_cuorse",{"arr":arr})
     })
 };
+
+//渲染一个处理老师修改密码的逻辑
+exports.doupdatepwd=(req,res)=>{
+    tdb.UPDATEpwd(req.body,function(info) {
+        res.send(info);
+    })
+    // res.redirect("/update");
+};
+
+//渲染修改密码页面
+exports.showteapwd=(req,res) =>{
+    if(req.session.user){
+        tdb.getTeacher(req.session,function(arr){
+            res.render("T_update_password",{"arr":arr})
+        });
+    }
+};
