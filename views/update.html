@@ -21,36 +21,40 @@
 <!--<div class="main" >-->
     <div style="margin-left: 580px;margin-top:160px;margin-bottom:20px;background: white;width: 300px;height: 400px;padding-top:25px;padding-left: 50px;border-radius: 20px">
     <p style="font-size: 20px;color: #2e6da4;margin-bottom: 50px">在这里更改你的个人信息：</p>
+        <p style="font-size: 15px;margin-top: -30px;color:red;">(您被限制修改自己的学号！！)</p>
 
     <ul>
     <!--<%= user.username %>-->
-    <li class="data_li">姓名：<input type="text" id="stuname"></li>
-    <li class="data_li">学号：<input type="text" id="stuid"></li>
-    <li class="data_li">性别：<input type="text" id="stusex"></li>
-    <li class="data_li">年龄：<input type="text" id="stuage"></li>
-    <li class="data_li">学院：<input type="text" id="college"></li>
-    <li class="data_li">专业：<input type="text" id="major"></li>
+        <% for(var i=0; i< arr.length; i++){ %>
+    <li class="data_li">姓名：<input class="data_ip" type="text" name="stuname" id="stuname" value=<%= arr[i].StudentName %>></li>
+    <li class="data_li">学号：<input class="data_ip" type="text" disabled="true" name="stuid" id="stuid" value=<%= user.username %>></li>
+    <li class="data_li">性别：<input class="data_ip" type="text" name="stuname" id="stusex" value=<%= arr[i].StudentSex %>></li>
+    <li class="data_li">年龄：<input class="data_ip" type="text" name="stusex" id="stuage" value=<%= arr[i].StudentAge %>></li>
+    <li class="data_li">学院：<input class="data_ip" type="text" name="college" id="college" value=<%= arr[i].college %>></li>
+    <li class="data_li">专业：<input class="data_ip" type="text" name="major" id="major" value=<%= arr[i].major %>></li>
+        <% } %>
     <li style="margin-top: 45px;margin-left: 175px">
-        <button id="add" type="button" style="width:60px;height:35px;background-color: blueviolet; border-radius:3px;border: #afd9ee 1px solid ">修改</button>
+        <button id="change" type="button" style="width:60px;height:35px;background-color: blueviolet; border-radius:3px;border: #afd9ee 1px solid ">修改</button>
     </li>
     </ul>
+
     </div>
 <!--</div>-->
 //处理更改
 <script>
-    $("#add").click(function () {
-        $.post("/updata", {
-            "stuname":$("#stuname").val(),
+    $("#change").click(function () {
+        $.post("/update", {
+            "stuname" :$("#stuname").val(),
             "stusex":$("#stusex").val(),
             "stuid":$("#stuid").val(),
             "stuage":$("#stuage").val(),
             "college":$("#college").val(),
             "major":$("#major").val(),
         }, function (data) {  // data是服务器返回的数据
-            if(data == "1"){
-                alert("更改学生成功了~")
+             if(data == "1"){
+                alert("更改信息成功了~")
             }else{
-                alert("更改学生失败了~")
+                alert("更改信息失败了~")
             }
         });
     });

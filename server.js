@@ -9,7 +9,7 @@ var session = require("express-session");
 app.use(session({
     secret:'secret',
     resave:true,
-    saveUninitialized:false,
+    saveUninitialized:true,
 
 }));
 
@@ -35,7 +35,7 @@ app.use(function(req, res, next){
     if (err) res.locals.message = '<div style="margin-bottom: 20px;color:red;">' + err + '</div>';
     next();
 });
-;
+
 
 //静态资源
 app.use(express.static( 'public/css'));
@@ -58,7 +58,8 @@ app.get("/regT",teacher.showRegT)
 app.get("/regS",admin.showRegS)
 app.get("/regC",admin.showRegC)
 //修改个人信息
-app.get("/update",student.update)
+// app.get("/update",student.update)
+app.get("/update",index.showstudata)
 app.post("/update",student.doupdate)
 app.post("/regT",teacher.doRegT)
 app.post("/regS",admin.doRegS)

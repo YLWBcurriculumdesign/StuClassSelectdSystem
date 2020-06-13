@@ -133,3 +133,7 @@ a{text-decoration:none;}
 .data_li{
     margin-top: 10px;
 }
+.data_ip{
+    border: #2e6da4 2px solid;
+    border-radius: 5px;
+}

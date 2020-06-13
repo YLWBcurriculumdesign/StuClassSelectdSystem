@@ -39,8 +39,8 @@ function add(data,callback) {
     });
     
     }
-
     exports.add = add;
+
 
 //学生修改个人信息
 function UPDATE(data,callback) {
@@ -58,6 +58,7 @@ function UPDATE(data,callback) {
     connection.query(updataSql,updataSqlParams,function (err, result) {
         if(err){
             var str = err.message;
+            console.log(str);
             callback("-1");
             connection.end();
         }
@@ -78,14 +79,12 @@ function getStudent(session,callback) {
         database : 'studentsclass'
     });
     connection.connect();
-    var  sql = 'SELECT * FROM studata where StudentID='+session.user.username;;
+    var  sql = 'SELECT * FROM studata where StudentID='+session.user.username;
 //查
     connection.query(sql,function (err, result) {
         if (err) throw err;
         connection.end();
         callback(result);
-
     });
-
 }
-exports.getStudent = getStudent;
+exports.getStudent = getStudent; //当前登录学生信息
