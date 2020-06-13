@@ -14,11 +14,11 @@ app.use(session({
 }));
 
 
-let index = require("./controllers/index")
+let index = require("./controllers/index");
 //教师
-let teacher = require("./controllers/teachers")
-let student = require("./controllers/students")
-let admin = require("./controllers/administrator")
+let teacher = require("./controllers/teachers");
+let student = require("./controllers/students");
+let admin = require("./controllers/administrator");
 
 app.set("view engine","ejs");
 // 修改模板文件的后缀名为html
@@ -54,6 +54,8 @@ app.get("/Admin_student",admin.admin_student);
 app.get("/Admin_course",admin.admin_course);
  app.get("/forgetPsw",index.showForget);
 app.get("/Student_select_course",student.Student_select_course);
+app.get("/Student_my_course",student.student_my_course)
+app.get("/myclass",student.myclass)
 app.get("/regT",teacher.showRegT);
 app.get("/regS",admin.showRegS);
 app.get("/regC",admin.showRegC);

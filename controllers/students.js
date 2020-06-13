@@ -22,3 +22,15 @@ exports.doupdate=(req,res)=>{
 exports.update=(req,res)=> {
     res.render('update');
 };
+exports.student_my_course=(req,res)=>{
+    res.render("Student_my_course")
+};
+exports.myclass = (req,res)=>{
+    // console.log(req.body)
+    sdb.getStudentcourse(req.session,function(info){
+        res.send(info)
+    })
+}
+
+
+

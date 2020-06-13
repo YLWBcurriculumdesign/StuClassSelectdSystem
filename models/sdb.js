@@ -89,3 +89,24 @@ function getStudent(session,callback) {
 
 }
 exports.getStudent = getStudent;
+
+function getStudentcourse (session,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM course,sac WHERE course.Cid=sac.CID and sac.SID='+session.user.username;
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
+
+    });
+
+}
+exports.getStudentcourse = getStudentcourse;
