@@ -8,10 +8,10 @@ exports.dologin = (req,res)=>{
 
     db.LOGIN(req.body,function(info){
         if (info == 1){
-            var user={
+            var user ={
                 username:req.body.username,
                 password:req.body.password
-            }
+            };
             req.session.user = user;
             res.send(200);
         }else {

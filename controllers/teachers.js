@@ -1,10 +1,10 @@
-let tdb = require("../models/Tdb")
+let tdb = require("../models/Tdb");
 exports.showRegT = (req,res)=>{
     res.render("regT")
-}
+};
 
 exports.doRegT = (req,res)=>{
-    console.log(req.body)
+    console.log(req.body);
     tdb.add(req.body,function(info){
         // if (info==1){
         //     req.session.error = "工号重复，请检查您的工号！";
@@ -19,7 +19,7 @@ exports.doRegT = (req,res)=>{
         // }
         res.send(info);
     })   
-}
+};
 
 
 exports.teacher_mycourse=(req,res)=>{

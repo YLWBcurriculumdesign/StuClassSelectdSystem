@@ -31,8 +31,8 @@ function add(data,callback) {
                     connection.end();
             }
             }else {
-                console.log(result)
-                console.log(data)
+                console.log(result);
+                console.log(data);
                 connection.end();
                 callback("1")
             }        
@@ -78,7 +78,7 @@ function getStudent(session,callback) {
         database : 'studentsclass'
     });
     connection.connect();
-    var  sql = 'SELECT * FROM studata where StudentID='+session.user.username;;
+    var  sql = 'SELECT * FROM studata where StudentID='+session.user.username;
 //查
     connection.query(sql,function (err, result) {
         if (err) throw err;
