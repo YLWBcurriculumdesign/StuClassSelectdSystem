@@ -32,8 +32,8 @@ connection.query(addSql,addSqlParams,function (err, result) {
                 connection.end();
         }
         }else {
-            console.log(result)
-            console.log(data)
+            console.log(result);
+            console.log(data);
             connection.end();
             callback("1")
         }        

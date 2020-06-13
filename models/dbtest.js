@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     database : 'studentsclass'
 });
 connection.connect();
-var  sql = 'SELECT * FROM studata WHERE StudentID=171405'
+var  sql = 'SELECT * FROM studata WHERE StudentID=171405';
 //查
 connection.query(sql,function (err, result) {
     if(err){
@@ -20,4 +20,4 @@ connection.query(sql,function (err, result) {
     console.log('------------------------------------------------------------\n\n');
     // console.log(result[0].Tid);
     // console.log(result[3].Tid);
-})
+});

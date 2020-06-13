@@ -31,8 +31,8 @@ function add(data,callback) {
                     connection.end();
             }
             }else {
-                console.log(result)
-                console.log(data)
+                console.log(result);
+                console.log(data);
                 connection.end();
                 callback("1")
             }        

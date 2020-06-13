@@ -21,8 +21,7 @@ function LOGIN(data,callback) {
                 connection.end();
                 callback("-1")
             }else {
-                console.log(result)
-                console.log(data.passname);
+                console.log(result)//打印在这
                 if (data.type=="1"){
                     if (result[0].StudentPWD == data.password){
                         connection.end();
