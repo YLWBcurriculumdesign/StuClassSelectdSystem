@@ -42,6 +42,7 @@ exports.showsuccess=(req,res)=>{
         res.redirect('/');
     }
 };
+
 exports.showstudent=(req,res) =>{
     if(req.session.user){
         sdb.getStudent(req.session,function(arr){

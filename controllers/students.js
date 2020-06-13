@@ -12,15 +12,19 @@ exports.Student_select_course =(req,res)=>{
 
 //渲染一个处理学生修改个人信息的逻辑
 exports.doupdate=(req,res)=>{
-    console.log(req.body);
     sdb.UPDATE(req.body,function(info) {
         res.send(info);
     })
+    // res.redirect("/update");
 };
 
-// 渲染一个显示学生修改个人信息的页面
-exports.update=(req,res)=> {
-    res.render('update');
+//渲染修改信息页面
+exports.showstudata=(req,res) =>{
+    if(req.session.user){
+        sdb.getStudent(req.session,function(arr){
+            res.render("STUupdate",{"arr":arr})
+        });
+    }
 };
 exports.student_my_course=(req,res)=>{
     res.render("Student_my_course")

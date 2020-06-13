@@ -41,6 +41,32 @@ connection.query(addSql,addSqlParams,function (err, result) {
 
 }
 
+//老师修改个人信息
+function UPDATE(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var updataSql = 'UPDATE teacher SET Tname = ?,Tsex = ?,Introduction = ? WHERE Tid = ?';
+    var updataSqlParams = [data.Tname,data.Tsex,data.Introduction,data.Tid];
+    connection.query(updataSql,updataSqlParams,function (err, result) {
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.UPDATE = UPDATE;  // 导出
+
 
 function getTeacher(session,callback) {
     var mysql      = require('mysql');
