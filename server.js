@@ -60,9 +60,11 @@ app.get("/Student_select_course",student.Student_select_course);
 app.get("/Student_desselect_course",student.Student_desselect_course);
 app.get("/Student_my_course",student.student_my_course);
 app.get("/myclass",student.myclass);
+app.get("/TregC",admin.showTRegC);
 app.get("/regT",teacher.showRegT);
 app.get("/regS",admin.showRegS);
 app.get("/regC",admin.showRegC);
+
 //修改个人信息
 // app.get("/update",student.update)
 app.get("/STUupdate",student.showstudata);

@@ -5,6 +5,10 @@ exports.showRegS = (reg,res)=>{
     res.render("regS")
 };
 
+exports.showTRegC = (reg,res)=>{
+    res.render("TregC")
+};
+
 exports.showRegC = (reg,res)=>{
     res.render("regC")
 };

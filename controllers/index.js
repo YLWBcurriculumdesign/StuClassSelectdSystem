@@ -13,10 +13,10 @@ exports.dologin = (req,res)=>{
                 password:req.body.password
             };
             req.session.user = user;
-            res.send(200);
+            res.sendStatus(200);
         }else {
             req.session.error = "用户名或密码不正确";
-            res.send( 404 );
+            res.sendStatus( 404 );
         }
     });
     // var user={
