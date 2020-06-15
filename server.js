@@ -3,7 +3,10 @@ let app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
-
+app.use(function(req,res,next){
+    res.header('Access-Control-Allow-Origin','*');//添加这句话就可以正常返回数据了
+    next();
+})
 // var multer = require('multer');
 var session = require("express-session");
 app.use(session({
