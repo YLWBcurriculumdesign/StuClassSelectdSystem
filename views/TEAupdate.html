@@ -18,8 +18,8 @@
 <div class ="top"  ><h1>恭喜用户<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
 
 
-<!--<div class="main" >-->
-<div style="margin-left: 580px;margin-top:160px;margin-bottom:20px;background: white;width: 300px;height: 400px;padding-top:25px;padding-left: 50px;border-radius: 20px">
+<div class="main" >
+<div style="text-align:center;margin:0 auto;background: white;width: 300px;height: 400px;border-radius: 20px">
     <p style="font-size: 20px;color: #2e6da4;margin-bottom: 50px">在这里更改你的个人信息：</p>
     <p style="font-size: 15px;margin-top: -30px;color:red;">(您被限制修改自己的工号！！)</p>
 
@@ -37,8 +37,8 @@
     </ul>
 
 </div>
-<!--</div>-->
-//处理更改
+</div>
+<!--//处理更改-->
 <script>
     $("#change").click(function () {
         $.post("/TEAupdate", {
