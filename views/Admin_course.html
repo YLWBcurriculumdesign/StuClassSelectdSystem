@@ -30,6 +30,7 @@
             <th>课程时间</th>
             <th>授课教师</th>
             <th>课程简介</th>
+            <th>选择</th>
         </tr>
 
         <% for(var i=0; i< arr.length; i++){ %>
@@ -42,7 +43,8 @@
             <td><%= arr[i].Ctime %></td>
             <td><%= arr[i].Tname %></td>
             <td><%= arr[i].Cintroduction %></td>
-            <td><input type="checkbox" id='<%=i %>'value='<%=i %>' /></td>
+            <!-- <td><input type="checkbox"  id='<%=i %>'value='<%=i %>' /></td> -->
+            <td><input type="checkbox" onclick="checkAll()"  id='checkAll'  /></td>
         </tr>
 
         <% } %>
@@ -122,4 +124,28 @@
     <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
 </div>
 </body>
+<script>
+    function checkAll(){
+        //1.获取编号前面的复选框
+        var checkAllEle = document.getElementById("checkAll");
+        //2.对编号前面复选框的状态进行判断
+        if(checkAllEle.checked==true){
+            //3.获取下面所有的复选框
+            var checkOnes = document.getElementsByName("checkOne");
+            //4.对获取的所有复选框进行遍历
+            for(var i=0;i<checkOnes.length;i++){
+                //5.拿到每一个复选框，并将其状态置为选中
+                checkOnes[i].checked=true;
+            }
+        }else{
+            //6.获取下面所有的复选框
+            var checkOnes = document.getElementsByName("checkOne");
+            //7.对获取的所有复选框进行遍历
+            for(var i=0;i<checkOnes.length;i++){
+                //8.拿到每一个复选框，并将其状态置为未选中
+                checkOnes[i].checked=false;
+            }
+        }
+    }
+</script>
 </html>
