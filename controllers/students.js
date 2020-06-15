@@ -53,7 +53,12 @@ exports.myclass = (req,res)=>{
     sdb.getStudentcourse(req.session,function(info){
         res.send(info)
     })
-}
+};
+exports.Student_desselect_course=(req,res)=>{
+    sdb.getStudentcourse(req.session,function(arr){
+        res.render("Student_desselect_course",{"arr":arr})
+    })
+};
 
 
 

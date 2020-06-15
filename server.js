@@ -54,6 +54,7 @@ app.get("/Admin_student",admin.admin_student);
 app.get("/Admin_course",admin.admin_course);
  app.get("/forgetPsw",index.showForget);
 app.get("/Student_select_course",student.Student_select_course);
+app.get("/Student_desselect_course",student.Student_desselect_course)
 app.get("/Student_my_course",student.student_my_course)
 app.get("/myclass",student.myclass)
 app.get("/regT",teacher.showRegT);
