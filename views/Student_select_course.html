@@ -41,8 +41,6 @@
             <td id='ctime' name='ctime'><%= arr[i].Ctime %></td>
             <td id='cteacher' name='cteacher'><%= arr[i].Tname %></td>
             <td id='ciintroduction' name='ciintroduction'><%= arr[i].Cintroduction %></td>
-            <!-- <td><input type="checkbox" id='checkbox' name='checkbox'  /></td> -->
-            <!-- <td><input type="checkbox" onclick="Check()"></td> -->
             <td><input name='one' type='checkbox' οnclick='showCol' value='1' ></td>
         </tr>
 
@@ -134,8 +132,7 @@ function showCol(){
         var row=$(this).parent("td").parent("tr");
         var cid=row.find("[cid='cid']").html();
 		var cname=row.find("[cname='cname']").html();//注意html()和val()
-		
-		console.info(cid+":"+cname);
+		console.log(cid+":"+cname);
 	});
 }
 </html>
