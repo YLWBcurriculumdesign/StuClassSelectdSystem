@@ -155,10 +155,12 @@ function getStudentcourse (session,callback) {
     });
     connection.connect();
     var  sql = 'SELECT * FROM course,sac WHERE course.Cid=sac.CID and sac.SID='+session.user.username;
+    console.log(sql)
 //查
     connection.query(sql,function (err, result) {
         if (err) throw err;
         connection.end();
+        console.log(result);
         callback(result);
 
     });
