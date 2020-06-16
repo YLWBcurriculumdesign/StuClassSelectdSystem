@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     database : 'studentsclass'
 });
 connection.connect();
-var  sql = 'SELECT * FROM studata WHERE StudentID=171405';
+var  sql = 'DELETE * FROM sac WHERE SID='+session.user.username+'and...='+data.cid;
 //查
 connection.query(sql,function (err, result) {
     if(err){
