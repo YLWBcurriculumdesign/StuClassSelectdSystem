@@ -44,8 +44,14 @@ exports.teacher_mycourse=(req,res)=>{
     })
 };
 
+exports.teacher_mycourse_up=(req,res)=>{
+    tdb.getTeachercourse(req.session,function(arr){
+        res.render("tea_update_course",{"arr":arr})
+    })
+};
 //渲染一个处理老师修改密码的逻辑
 exports.doupdatepwd=(req,res)=>{
+    console(req.body);
     tdb.UPDATEpwd(req.body,function(info) {
         res.send(info);
     })
@@ -59,4 +65,12 @@ exports.showteapwd=(req,res) =>{
             res.render("T_update_password",{"arr":arr})
         });
     }
+};
+
+//渲染一个处理老师修改课程的逻辑
+exports.doupdatecourse=(req,res)=>{
+    tdb.UPDATEcour(req.body,function(info) {
+        res.send(info);
+    })
+    // res.redirect("/update");
 };

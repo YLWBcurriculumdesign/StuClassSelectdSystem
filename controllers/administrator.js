@@ -1,6 +1,7 @@
 let sdb = require("../models/sdb");
 let cdb = require("../models/cdb");
 let db = require("../models/db");
+let tdb = require("../models/Tdb");
 exports.showRegS = (reg,res)=>{
     res.render("regS")
 };

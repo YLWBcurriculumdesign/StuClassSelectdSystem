@@ -78,6 +78,25 @@ function getTeacher(callback) {
     });
 
 }
+//打印单个教师
+function getaTeacher(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM teacher WHERE TID='+data.Tid;
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
+    });
+}
+
 
 //打印学生
 
@@ -129,5 +148,6 @@ function getCourse(callback) {
 
  exports.LOGIN = LOGIN;  // 导出
 exports.getTeacher=getTeacher;//管理员--教师信息
+exports.getaTeacher=getaTeacher;//管理员--一个教师信息
 exports.getStudent=getStudent;//管理员--学生信息
 exports.getCourse=getCourse;//管理员--学生信息
