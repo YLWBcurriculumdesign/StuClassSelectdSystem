@@ -17,7 +17,7 @@
     <div class="loginMain">
     <form action="">
       <p class="form-group" id="userP">
-      <label for="user">账号：</label>
+      <label for="user">校园通账号：</label>
       <input type="text" id="user" class="input form-control" name="user" data-container="body" data-toggle="popover" data-placement="top" data-content="请正确输入校园通账号" placeholder="学号或教职工号">
       </p>
       <p class="form-group" id="pswP">
@@ -33,7 +33,7 @@
         <option value="0">管理员</option>
       </select>      
       </p>
-
+      <input type="checkbox" id="remember" name="remember"> <label for="remember">记住我</label>
     </form>
       <button type="button" id="submit" class="btn btn-primary btn-success btn-block" >登录<span class="glyphicon glyphicon-circle-arrow-right"></span></button>
     </div>  
@@ -43,86 +43,85 @@
       $("#submit").click(function () {
           var username = $('#user').val();
           var password = $('#password').val();
-          var type = $("#typeId").val();
-          if (type == "1") {
-              var findby = "studata";
-              var findname = "StudentID"
+          var type =$("#typeId").val();
+          if(type=="1"){
+              var findby ="studata";
+              var findname="StudentID"
           }
-          if (type == "2") {
-              var findby = "teacher";
-              var findname = "Tid"
-          }
-
-          if (type == "0") {
-              var findby = "admin";
-              var findname = "Aname"
+          if(type=="2"){
+              var findby ="teacher";
+              var findname="Tid"
           }
 
-          var data = {"username": username, "password": password, "type": type, "findby": findby, "findname": findname};
-          if (data.type == "1") {
+          if(type=="0"){
+              var findby ="admin";
+              var findname="Aname"
+          }
+
+          var data = { "username": username, "password":password,"type":type,"findby":findby,"findname":findname};
+          if (data.type=="1"){
               $.ajax({
-                  url: 'index',
-                  type: 'POST',
-                  data: data,
-                  success: function (data, status) {
-                      if (status == 'success') {
-                          location.href = 'Student';
+                  url:'index',
+                  type:'POST',
+                  data:data,
+                  success:function(data,status){ 
+                      if(status == 'success'){
+                          location.href='Student';
                           // location.href='Select_course';
                           // alert("学生")
                       }
                   },
-                  error: function (data, status, e) {
-                      if (status == "error") {
+                  error:function(data,status,e){
+                      if(status == "error"){
                           // location.href='/defeat';
                           alert("账号密码错误")
                           // location.href='success';
                       }
                   }
               });
-          }
-          ;
-          if (data.type == "2") {
+          };
+          if (data.type=="2"){
               $.ajax({
-                  url: 'index',
-                  type: 'POST',
-                  data: data,
-                  success: function (data, status) {
-                      if (status == 'success') {
-                          location.href = 'Teacher';
+                  url:'index',
+                  type:'POST',
+                  data:data,
+                  success:function(data,status){
+                      if(status == 'success'){
+                          location.href='Teacher';
                           // location.href='success';
                           // alert("教师")
                       }
                   },
-                  error: function (data, status, e) {
-                      if (status == "error") {
+                  error:function(data,status,e){
+                      if(status == "error"){
                           // location.href='success';
                           // location.href='/defeat';
                           alert("账号密码错误")
                       }
                   }
               });
-          }
-          ;
-          if (data.type == "0") {
+          };
+          if (data.type=="0"){
               $.ajax({
-                  url: 'index',
-                  type: 'POST',
-                  data: data,
-                  success: function (data, status) {
-                      if (status == 'success') {
+                  url:'index',
+                  type:'POST',
+                  data:data,
+                  success:function(data,status){
+                      if(status == 'success'){
 
-                          location.href = 'Admin';
+                          location.href='Admin';
                           // alert("管理员")
                       }
                   },
-                  error: function (data, status, e) {
-                      if (status == "error") {
+                  error:function(data,status,e){
+                      if(status == "error"){
                           // location.href='/defeat';
                           alert("账号密码错误")
                       }
                   }
               });
           }
+
       })
   </script>
 </body>
