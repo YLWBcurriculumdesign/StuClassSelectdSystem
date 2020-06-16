@@ -18,7 +18,7 @@
 
 
 <div class="main"  >
-    <table id="Tab">
+    <table id="Tab" name="first">
 
         <tr>
             <th>课程编号</th>
@@ -34,22 +34,45 @@
         <% for(var i=0; i< arr.length; i++){ %>
 
         <tr>
-            <td id='cid' name='id'><%= arr[i].Cid %></td>
+            <td id='cid<%=i%>' name='id'><%= arr[i].Cid %></td>
             <td id='cname' name='cname'><%= arr[i].Cname %></td>
             <td id='ctype' name='ctype'><%= arr[i].Ctype %></td>
             <td id='cweek' name='cweek'><%= arr[i].Cweek %></td>
             <td id='ctime' name='ctime'><%= arr[i].Ctime %></td>
             <td id='cteacher' name='cteacher'><%= arr[i].Tname %></td>
             <td id='ciintroduction' name='ciintroduction'><%= arr[i].Cintroduction %></td>
-            <td><input name='one' type='checkbox' οnclick='showCol' value='1' ></td>
+            <td><input name='aa' type='checkbox'  value='<%=i%>' ></td>
         </tr>
 
         <% } %>
+
     </table>
     <!-- <button type="button" οnclick="Check()">提交</button> -->
-
+    <input id="choosecourse" type="button" onclick="choosecourse()" value="正选">
 </div>
-
+<script type="text/javascript">
+    function choosecourse(){
+        cc=document.getElementsByName("aa")
+        txt="";
+        for (i=0;i<cc.length;i++){
+            if(cc[i].checked) {
+                var cid="cid"+i;
+                CID=txt + document.getElementById(cid).innerText
+                $.post("/choosecourse", { //做post的工作
+                    "Cid":CID,
+                },function (data) {  // data是服务器向客户端返回的数据info
+                    if(data == "1"){
+                        alert("正选成功")
+                    }else if(data == "-2"){
+                        alert("学号重复，请您重新输入！")
+                    }else{
+                        alert("正选失败")
+                    }
+                });
+            }
+        }
+    }
+</script>
 
 <div class="left-side-menu" >
     <div class="lsm-expand-btn">
@@ -126,14 +149,6 @@
     <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
 </div>
 </body>
-function showCol(){
-	var check=$("input[name='one']:checked");//选中的复选框
-	check.each(function(){
-        var row=$(this).parent("td").parent("tr");
-        var cid=row.find("[cid='cid']").html();
-		var cname=row.find("[cname='cname']").html();//注意html()和val()
-		console.log(cid+":"+cname);
-	});
-}
+
 </html>
 

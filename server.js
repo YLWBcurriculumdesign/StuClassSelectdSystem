@@ -64,7 +64,7 @@ app.get("/TregC",admin.showTRegC);
 app.get("/regT",teacher.showRegT);
 app.get("/regS",admin.showRegS);
 app.get("/regC",admin.showRegC);
-
+app.post("/choosecourse",student.choosecourse)
 //修改个人信息
 // app.get("/update",student.update)
 app.get("/STUupdate",student.showstudata);

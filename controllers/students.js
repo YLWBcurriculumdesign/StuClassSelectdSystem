@@ -60,5 +60,13 @@ exports.Student_desselect_course=(req,res)=>{
     })
 };
 
+exports.choosecourse=(req,res)=>{
+    sdb.choosecourse(req.session,req.body,function(info) {
+        res.send(info);
+    })
+    // res.redirect("/update");
+};
+
+
 
 
