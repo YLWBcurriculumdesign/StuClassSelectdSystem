@@ -160,10 +160,81 @@ function getTeachercourse(session,callback) {
     });
 
 }
+//教师删除课程
+function deletecourse(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var updataSql = 'DELETE FROM course WHERE Cid = ? ';
+    var updataSqlParams = [data.Cid];
 
+    connection.query(updataSql,updataSqlParams,function (err, result) {
 
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+//管理员查询所有教师
+function getTeachers(callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM teacher';
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
 
+    });
 
+}
+//管理员删除教师信息
+function deletetea(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var deletestudentSql = 'DELETE FROM teacher WHERE Tid=?';
+    var deletestudentSqlParams = [data.Tid];
+
+    connection.query(deletestudentSql,deletestudentSqlParams,function (err, result) {
+
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
 exports.getTeachercourse = getTeachercourse;
 exports.getTeacher = getTeacher;
 exports.add = add;
+exports.deletecourse=deletecourse;
+exports.getTeachers=getTeachers;
+exports.deletetea=deletetea;

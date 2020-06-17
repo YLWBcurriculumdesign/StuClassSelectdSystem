@@ -76,9 +76,17 @@ app.post("/T_update_password",teacher.doupdatepwd)
 app.get("/TEAupdate",teacher.showteadata)
 app.post("/TEAupdate",teacher.doupdate)
 // app.post("/A_updata_teacher",admin.doupdate)
+
 //老师改课程
 app.get("/tea_update_course",teacher.teacher_mycourse_up)
 app.post("/tea_update_course",teacher.doupdatecourse)
+//删除
+app.get("/Tea_delete_course",teacher.teacher_mycourse_de)
+app.post("/Tea_delete_course",teacher.dodeletecourse)
+app.get("/Admin_delete_stu",admin.admindelstudent)
+app.post("/Admin_delete_stu",admin.deletestudent)
+app.get("/Admin_delete_tea",admin.admindeltea)
+app.post("/Admin_delete_tea",admin.deletetea)
 app.post("/regT",teacher.doRegT)
 app.post("/regS",admin.doRegS)
 app.post("/regC",admin.doRegC)

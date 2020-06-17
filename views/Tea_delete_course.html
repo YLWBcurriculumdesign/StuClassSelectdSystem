@@ -34,49 +34,49 @@
         <% for(var i=0; i< arr.length; i++){ %>
 
         <tr>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid" type="text" id='cid<%=i %>' value=<%= arr[i].Cid %>></td>
+            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid"  id='cid<%=i %>' value=<%= arr[i].Cid %>></td>
             <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cname" type="text" id='cname<%=i %>' value=<%= arr[i].Cname %>></td>
             <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctype" type="text" id='ctype<%=i %>' value=<%= arr[i].Ctype %>></td>
             <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cweek" type="text" id='cweek<%=i %>' value=<%= arr[i].Cweek %>></td>
             <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctime" type="text" id='ctime<%=i %>' value=<%= arr[i].Ctime %>></td>
             <td><input style="width: auto;border-radius: 4px;border: black 1px solid" class="Cintroduction" type="text" id='cintroduction<%=i %>' value=<%= arr[i].Cintroduction %>></td>
             <td><input name='aa' type='checkbox'  value='<%=i%>' ></td>
-            <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px" type="button" id='btu<%=i %>' onclick="update_course()">更改</button></td>
+            <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px" type="button" id='btu<%=i %>' onclick="delete_course()">删除</button></td>
             <input type="text" style="visibility: hidden;" id="teaid" value=<%= user.username %>>
         </tr>
         <% } %>
     </table>
-        <script>
-        function update_course() {
+    <script>
+        function delete_course() {
             cc=document.getElementsByName("aa");
             txt="";
             for (i=0;i<cc.length;i++) {
                 if (cc[i].checked) {
                     var Cid = "cid" + i;
-                    var Cname = "cname" + i;
-                    var Ctype = "ctype" + i;
-                    var Cweek = "cweek" + i;
-                    var Ctime = "ctime" + i;
-                    var Cintroduction = "cintroduction" + i;
+                    // var Cname = "cname" + i;
+                    // var Ctype = "ctype" + i;
+                    // var Cweek = "cweek" + i;
+                    // var Ctime = "ctime" + i;
+                    // var Cintroduction = "cintroduction" + i;
                     Cid=txt + document.getElementById(Cid).value
-                    Cname=txt + document.getElementById(Cname).value
-                    Ctype=txt + document.getElementById(Ctype).value
-                    Cweek=txt + document.getElementById(Cweek).value
-                    Ctime=txt + document.getElementById(Ctime).value
-                    Cintroduction=txt + document.getElementById(Cintroduction).value
-                    $.post("/tea_update_course", {
+                    // Cname=txt + document.getElementById(Cname).value
+                    // Ctype=txt + document.getElementById(Ctype).value
+                    // Cweek=txt + document.getElementById(Cweek).value
+                    // Ctime=txt + document.getElementById(Ctime).value
+                    // Cintroduction=txt + document.getElementById(Cintroduction).value
+                    $.post("/Tea_delete_course", {
                         "Cid": Cid,
-                        "Cname": Cname,
-                        "Ctype": Ctype,
-                        "Cweek": Cweek,
-                        "Ctime":Ctime,
-                        "Cintroduction": Cintroduction,
-                        "Tid": $("#teaid").val(),
+                        // "Cname": Cname,
+                        // "Ctype": Ctype,
+                        // "Cweek": Cweek,
+                        // "Ctime":Ctime,
+                        // "Cintroduction": Cintroduction,
+                        // "Tid": $("#teaid").val(),
                     }, function (data) {  // data是服务器返回的数据
                         if (data == "1") {
-                            alert("更改信息成功了~")
+                            alert("删除信息成功了~")
                         } else {
-                            alert("更改信息失败了~")
+                            alert("删除信息失败了~")
                         }
                     });
                 }
@@ -119,8 +119,8 @@
                         <ul>
                             <li><a href="/Teacher_my_course"><span>我的课程</span></a></li>
                             <li><a href="regC"><span>发布课程</span></a></li>
-                            <li><a class="active" href="./tea_update_course"><span>修改课程</span></a></li>
-                            <li><a href="/Tea_delete_course"><span>删除课程</span></a></li>
+                            <li><a  href="./tea_update_course"><span>修改课程</span></a></li>
+                            <li><a class="active" href="/Tea_delete_course"><span>删除课程</span></a></li>
                             <!-- <li class="lsm-sidebar-item">
                                 <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>课程管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                                 <ul >

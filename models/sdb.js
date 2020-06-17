@@ -209,3 +209,31 @@ function choosecourse(session,data,callback) {
 
 }
 exports.choosecourse=choosecourse;
+
+//管理员删除学生信息
+function deletestudent(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var deletestudentSql = 'DELETE FROM studata WHERE StudentID=?';
+    var deletestudentSqlParams = [data.StudentID];
+
+    connection.query(deletestudentSql,deletestudentSqlParams,function (err, result) {
+
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.deletestudent=deletestudent;

@@ -1,7 +1,7 @@
 let sdb = require("../models/sdb");
 let cdb = require("../models/cdb");
 let db = require("../models/db");
-let tdb = require("../models/Tdb");
+let Tdb = require("../models/Tdb");
 exports.showRegS = (reg,res)=>{
     res.render("regS")
 };
@@ -43,4 +43,26 @@ exports.admin_course =(reg,res)=>{
     db.getCourse(function(arr){
         res.render("Admin_course",{"arr":arr})
     });
+};
+//渲染一个管理员删除学生的逻辑
+exports.admindelstudent =(reg,res)=>{
+    db.getStudent(function(arr){
+        res.render("Admin_delete_stu",{"arr":arr})
+    });
+};
+exports.deletestudent=(req,res)=>{
+    sdb.deletestudent(req.body,function(info) {
+        res.send(info);
+    })
+};
+//渲染一个管理员删除老师的逻辑
+exports.admindeltea =(reg,res)=>{
+    Tdb.getTeachers(function(arr){
+        res.render("Admin_delete_tea",{"arr":arr})
+    });
+};
+exports.deletetea=(req,res)=>{
+    Tdb.deletetea(req.body,function(info) {
+        res.send(info);
+    })
 };

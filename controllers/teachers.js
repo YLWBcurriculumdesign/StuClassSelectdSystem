@@ -74,3 +74,14 @@ exports.doupdatecourse=(req,res)=>{
     })
     // res.redirect("/update");
 };
+exports.teacher_mycourse_de=(req,res)=>{
+    tdb.getTeachercourse(req.session,function(arr){
+        res.render("Tea_delete_course",{"arr":arr})
+    })
+};
+//渲染一个处理老师de课程的逻辑
+exports.dodeletecourse=(req,res)=>{
+    tdb.deletecourse(req.body,function(info) {
+        res.send(info);
+    })
+};
