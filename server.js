@@ -57,7 +57,6 @@ app.get("/Admin_student",admin.admin_student);
 app.get("/Admin_course",admin.admin_course);
  app.get("/forgetPsw",index.showForget);
 app.get("/Student_select_course",student.Student_select_course);
-app.get("/Student_desselect_course",student.Student_desselect_course);
 app.get("/Student_my_course",student.student_my_course);
 app.get("/myclass",student.myclass);
 app.get("/TregC",admin.showTRegC);
@@ -79,6 +78,17 @@ app.post("/TEAupdate",teacher.doupdate)
 //老师改课程
 app.get("/tea_update_course",teacher.teacher_mycourse_up)
 app.post("/tea_update_course",teacher.doupdatecourse)
+//删除
+app.get("/Student_desselect_course",student.Student_desselect_course)
+app.post("/Student_desselect_course",student.dropcourse)
+app.get("/Tea_delete_course",teacher.teacher_mycourse_de)
+app.post("/Tea_delete_course",teacher.dodeletecourse)
+app.get("/Admin_delete_stu",admin.admindelstudent)
+app.post("/Admin_delete_stu",admin.deletestudent)
+app.get("/Admin_delete_tea",admin.admindeltea)
+app.post("/Admin_delete_tea",admin.deletetea)
+app.get("/Admin_delete_course",admin.admindelcourse)
+app.post("/Admin_delete_course",admin.deletecourse)
 app.post("/regT",teacher.doRegT)
 app.post("/regS",admin.doRegS)
 app.post("/regC",admin.doRegC)

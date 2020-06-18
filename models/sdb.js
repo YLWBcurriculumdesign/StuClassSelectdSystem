@@ -208,4 +208,64 @@ function choosecourse(session,data,callback) {
     });
 
 }
+//学生退选课程
+function dropcourse(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var updataSql = 'DELETE FROM sac WHERE CID = ? ';
+    var updataSqlParams = [data.CID];
+
+    connection.query(updataSql,updataSqlParams,function (err, result) {
+
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+//管理员删除学生信息
+function deletestudent(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var deletestudentSql = 'DELETE FROM studata WHERE StudentID=?';
+    var deletestudentSqlParams = [data.StudentID];
+
+    connection.query(deletestudentSql,deletestudentSqlParams,function (err, result) {
+
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.add = add;
+exports.UPDATE = UPDATE;  // 导出
+exports.UPDATEpwd = UPDATEpwd;  // 导出
+exports.UPDATEpwd = UPDATEpwd;  // 导出
+exports.getStudent = getStudent;
+exports.getStudentcourse = getStudentcourse;
+exports.deletestudent=deletestudent;
 exports.choosecourse=choosecourse;
+exports.dropcourse=dropcourse;//退选
