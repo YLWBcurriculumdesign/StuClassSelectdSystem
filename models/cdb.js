@@ -42,8 +42,51 @@ function add(data,callback) {
                 callback("1")
             }        
     });
-    
     }
-    
-    
-    exports.add = add;
+//管理员查询所有课程
+function getTeachercourse(session,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var  sql = 'SELECT * FROM course ';
+//查
+    connection.query(sql,function (err, result) {
+        if (err) throw err;
+        connection.end();
+        callback(result);
+    });
+}
+//管理员删除课程
+function deletecourse(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var deletecourseSql = 'DELETE FROM course WHERE Cid=?';
+    var deletecourseSqlParams = [data.Cid];
+
+    connection.query(deletecourseSql,deletecourseSqlParams,function (err, result) {
+
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.add = add;
+exports.getTeachercourse=getTeachercourse;
+exports.deletecourse=deletecourse;

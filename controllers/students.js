@@ -54,18 +54,25 @@ exports.myclass = (req,res)=>{
         res.send(info)
     })
 };
-exports.Student_desselect_course=(req,res)=>{
-    sdb.getStudentcourse(req.session,function(arr){
-        res.render("Student_desselect_course",{"arr":arr})
-    })
-};
-
 exports.choosecourse=(req,res)=>{
     sdb.choosecourse(req.session,req.body,function(info) {
         res.send(info);
     })
     // res.redirect("/update");
 };
+
+//渲染一个学生退选页面
+exports.Student_desselect_course=(req,res)=>{
+    sdb.getStudentcourse(req.session,function(arr){
+        res.render("Student_desselect_course",{"arr":arr})
+    })
+};
+exports.dropcourse=(req,res)=>{
+    sdb.dropcourse(req.body,function(info) {
+        res.send(info);
+    })
+};
+
 
 
 

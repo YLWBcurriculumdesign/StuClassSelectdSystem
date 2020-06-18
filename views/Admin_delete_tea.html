@@ -14,58 +14,53 @@
 </head>
 <body>
 
-<div class ="top"  ><h1>恭喜用户<em id="user" style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
+<div class ="top"  ><h1>恭喜<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
 
 
 <div class="main"  >
     <table border="1">
-
         <tr>
-            <th>课程编号</th>
-            <th>课程名称</th>
-            <th>课程类别</th>
-            <th>课程日期</th>
-            <th>课程时间</th>
-            <th>课程简介</th>
+            <th>教师编号</th>
+            <th>姓名</th>
+            <th>密码</th>
+            <th>性别</th>
+            <th>简介</th>
             <th>选择</th>
-            <th>退选</th>
+            <th>操作</th>
         </tr>
-
         <% for(var i=0; i< arr.length; i++){ %>
-
         <tr>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid"  id='CID<%=i %>' value=<%= arr[i].CID %>></td>
-            <td id='cname<%=i %>'><%= arr[i].Cname %></td>
-            <td id='ctype<%=i %>'><%= arr[i].Ctype %></td>
-            <td id='cweek<%=i %>'><%= arr[i].Cweek %></td>
-            <td id='ctime<%=i %>'><%= arr[i].Ctime %></td>
-            <td id='ciintroduction<%=i %>'><%= arr[i].Cintroduction %></td>
+            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid"  id='Tid<%=i %>' value=<%= arr[i].Tid %>></td>
+            <td><%= arr[i].Tname %></td>
+            <td><%= arr[i].Tpassword %></td>
+            <td><%= arr[i].Tsex %></td>
+            <td><%= arr[i].Introduction %></td>
             <td><input name='aa' type='checkbox'  value='<%=i%>' ></td>
-            <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px" type="button" id='btu<%=i %>' onclick="delete_course()">退选</button></td>
+            <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px" type="button" id='btu<%=i %>' onclick="delete_tea()">删除</button></td>
             <input type="text" style="visibility: hidden;" id="teaid" value=<%= user.username %>>
         </tr>
         <% } %>
     </table>
     <script>
-        function delete_course() {
+        function delete_tea() {
             cc=document.getElementsByName("aa");
             txt="";
             for (i=0;i<cc.length;i++) {
                 if (cc[i].checked) {
-                    var CID = "CID" + i;
+                    var Tid = "Tid" + i;
                     // var Cname = "cname" + i;
                     // var Ctype = "ctype" + i;
                     // var Cweek = "cweek" + i;
                     // var Ctime = "ctime" + i;
                     // var Cintroduction = "cintroduction" + i;
-                    CID=txt + document.getElementById(CID).value
+                    Tid=txt + document.getElementById(Tid).value
                     // Cname=txt + document.getElementById(Cname).value
                     // Ctype=txt + document.getElementById(Ctype).value
                     // Cweek=txt + document.getElementById(Cweek).value
                     // Ctime=txt + document.getElementById(Ctime).value
                     // Cintroduction=txt + document.getElementById(Cintroduction).value
-                    $.post("/Student_desselect_course", {
-                        "CID": CID,
+                    $.post("/Admin_delete_tea", {
+                        "Tid": Tid,
                         // "Cname": Cname,
                         // "Ctype": Ctype,
                         // "Cweek": Cweek,
@@ -74,18 +69,16 @@
                         // "Tid": $("#teaid").val(),
                     }, function (data) {  // data是服务器返回的数据
                         if (data == "1") {
-                            alert("退选成功了~")
+                            alert("删除信息成功了~")
                         } else {
-                            alert("退选失败了~")
+                            alert("更改信息失败了~")
                         }
                     });
                 }
             }
         }
     </script>
-
 </div>
-
 
 <div class="left-side-menu" >
     <div class="lsm-expand-btn">
@@ -109,41 +102,36 @@
             <div class="lsm-sidebar">
                 <ul>
                     <li class="lsm-sidebar-item">
-                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>学生信息</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>教师管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
-                            <li><a  href="/Student"><span>基本信息</span></a></li>
-                            <li><a href="./STUupdate"><span>修改个人信息</span></a></li>
-                            <li><a href="./SUpassword"><span>修改密码</span></a></li>
-                            <!-- <li class="lsm-sidebar-item">
-                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>二级菜单11</span><i class="my-icon lsm-sidebar-more"></i></a>
-                                <ul>
-                                    <li><a href="javascript:;"><span>地爆天星</span></a></li>
-                                </ul>
-                            </li>
-
-                            <li class="lsm-sidebar-item">
-                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>二级菜单22</span><i class="my-icon lsm-sidebar-more"></i></a>
-                                <ul >
-                                    <li><a href="javascript:;"><span>血继限界</span></a></li>
-                                </ul>
-                            </li> -->
+                            <li><a class="active" href="/Admin"><span>教师名单</span></a></li>
+                            <li><a href="/regT"><span>新教师登记</span></a></li>
+                            <li><a href="/Admin_delete_tea"><span>离职教师登记</span></a></li>
+                            <li><a href="/A_updata_teacher"><span>修改教师信息</span></a></li>
                         </ul>
                     </li>
                     <li class="lsm-sidebar-item">
-                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>网上选课</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>学生管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
-                            <li class="lsm-sidebar-item">
-                                <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>选课程</span><i class="my-icon lsm-sidebar-more"></i></a>
-                                <ul >
-                                    <li><a href="Student_select_course"><span>正选</span></a></li>
-                                    <li><a class="active"  href="javascript:;"><span>退选</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/Student_my_course"><span>个人课表</span></a></li>
+
+                            <li><a href="/Admin_student"><span>学生名单</span></a></li>
+                            <li><a href="/regS"><span>添加学生信息</span></a></li>
+                            <li><a href="/Admin_delete_stu"><span>删除学生信息</span></a></li>
+                            <li><a href="javascript:;"><span>修改学生信息</span></a></li>
+
                         </ul>
                     </li>
+                    <li class="lsm-sidebar-item">
+                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>课程管理</span><i class="my-icon lsm-sidebar-more"></i></a>
+                        <ul>
 
+                            <li><a href="/Admin_course"><span>课程列表</span></a></li>
+                            <li><a href="/regC"><span>添加课程信息</span></a></li>
+                            <li><a href="/Admin_delete_course"><span>删除课程信息</span></a></li>
+                            <li><a href="/Admin_delete_course"><span>修改课程信息</span></a></li>
 
+                        </ul>
+                    </li>
                     <li class="lsm-sidebar-item">
                         <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_3"></i><span>退出系统</span><i class="my-icon lsm-sidebar-more"></i></a>
                         <ul>
@@ -155,10 +143,8 @@
             </div>
         </div>
     </div>
-
 </div>
-
-<div style="text-align:center;">
+<div class="di" style="text-align:center;">
     <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
 </div>
 </body>
