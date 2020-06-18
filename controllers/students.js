@@ -49,7 +49,8 @@ exports.student_my_course=(req,res)=>{
     res.render("Student_my_course")
 };
 exports.myclass = (req,res)=>{
-    // console.log(req.body)
+     console.log(req.session.user.username)
+
     sdb.getStudentcourse(req.session,function(info){
         res.send(info)
     })
