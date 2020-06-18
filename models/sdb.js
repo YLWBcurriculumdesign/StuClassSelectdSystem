@@ -37,7 +37,11 @@ function add(data,callback) {
                 callback("1")
             }        
     });
+    
     }
+
+    exports.add = add;
+
 //学生修改个人信息
 function UPDATE(data,callback) {
     var mysql      = require('mysql');
@@ -62,6 +66,34 @@ function UPDATE(data,callback) {
         connection.end();
     });
 }
+exports.UPDATE = UPDATE;  // 导出
+//学生更改密码
+function UPDATEpwd(data,callback) {
+    var mysql      = require('mysql');
+    var connection = mysql.createConnection({
+        host     : '39.101.177.156',
+        user     : 'root',
+        password : '555500',
+        database : 'studentsclass'
+    });
+    connection.connect();
+    var updataSql = 'UPDATE studata SET StudentPWD = ? WHERE StudentID = ?';
+    var updataSqlParams = [data.stupwd,data.stuid];
+
+    connection.query(updataSql,updataSqlParams,function (err, result) {
+        if(err){
+            var str = err.message;
+            console.log(str);
+            callback("-1");
+            connection.end();
+        }
+        console.log(data);
+        callback("1");
+        connection.end();
+    });
+}
+exports.UPDATEpwd = UPDATEpwd;  // 导出
+
 
 //学生更改密码
 function UPDATEpwd(data,callback) {
@@ -88,32 +120,8 @@ function UPDATEpwd(data,callback) {
         connection.end();
     });
 }
+exports.UPDATEpwd = UPDATEpwd;  // 导出
 
-//学生更改密码
-function UPDATEpwd(data,callback) {
-    var mysql      = require('mysql');
-    var connection = mysql.createConnection({
-        host     : '39.101.177.156',
-        user     : 'root',
-        password : '555500',
-        database : 'studentsclass'
-    });
-    connection.connect();
-    var updataSql = 'UPDATE studata SET StudentPWD = ? WHERE StudentID = ?';
-    var updataSqlParams = [data.stupwd,data.stuid];
-
-    connection.query(updataSql,updataSqlParams,function (err, result) {
-        if(err){
-            var str = err.message;
-            console.log(str);
-            callback("-1");
-            connection.end();
-        }
-        console.log(data);
-        callback("1");
-        connection.end();
-    });
-}
 
 //当前登录学生信息
 function getStudent(session,callback) {
@@ -131,9 +139,12 @@ function getStudent(session,callback) {
         if (err) throw err;
         connection.end();
         callback(result);
+
     });
+
 }
-//查学生已选课程
+exports.getStudent = getStudent;
+
 function getStudentcourse (session,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({
@@ -155,7 +166,8 @@ function getStudentcourse (session,callback) {
     });
 
 }
-//学生选课
+exports.getStudentcourse = getStudentcourse;
+
 function choosecourse(session,data,callback) {
     var mysql  = require('mysql');
     var connection = mysql.createConnection({
@@ -165,6 +177,8 @@ function choosecourse(session,data,callback) {
         database : 'studentsclass'
     });
     connection.connect();
+
+
     var  addSql = 'INSERT INTO sac(SID,CID) VALUES(?,?)';
 // var  addSqlParams = ['8888','王老师', "123456",'男', 'CN'];
     var addSqlParams = [session.user.username,data.Cid];
