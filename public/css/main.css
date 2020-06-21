@@ -10,11 +10,12 @@ table {
 
 th,td {
     padding: .65em;
+    color: #fff;
 }
 
 th {
-    background: rgb(85, 85, 85) ;
-    color: #fff;
+    background: rgb(186, 85, 211) ;
+    /*color: #fff;*/
 }
 
 /* tbody tr:hover {
@@ -22,8 +23,11 @@ th {
     font-size: 17px;
 } */
 
-tbody tr:nth-child(odd) {
-    background: rgb(93, 218, 250);
+/*tbody tr:nth-child(odd) {*/
+/*    background: rgb(93, 218, 250);*/
+/*}*/
+tbody{
+    background-color: rgba(98,96,98,0.8);
 }
 
 th:first-child {
@@ -46,10 +50,18 @@ h1,h3 {
     text-align: center;
 }
 .top{
-    width: 100%;height: 80px;background-color: beige;left:0;top:0;position: fixed;text-align: center;
+    width: 100%;height: 80px;background-image: url("top_2.jpg");
+    background-size:100% 90px;
+    left:0;top:0;position: fixed;text-align: center;
 }
 .main{
-    background: #E2E2E2;width: calc(100% - 60px);    padding-top: 80px;  padding-left: 60px;padding-bottom: 30px;text-align: center;
+    /*background-image: url("back_6.png");*/
+    background-size: cover;
+    width: calc(100% - 60px);
+    padding-top: 80px;
+    padding-left: 60px;
+    padding-bottom: 30px;
+    text-align: center;
 }
 /*.d div{*/
     /*text-align:center;padding-bottom: 30px;text-align:center;*/
