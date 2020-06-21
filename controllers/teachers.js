@@ -1,4 +1,5 @@
 let tdb = require("../models/Tdb");
+const session = require("express-session");
 exports.showRegT = (req,res)=>{
     res.render("regT")
 };
@@ -85,3 +86,9 @@ exports.dodeletecourse=(req,res)=>{
         res.send(info);
     })
 };
+
+exports.doRegC=(req,res)=>{
+    tdb.addC(req.body,req.session.user.username,function(info){
+        res.send(info)
+    })
+}

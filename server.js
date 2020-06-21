@@ -92,6 +92,7 @@ app.post("/Admin_delete_course",admin.deletecourse)
 app.post("/regT",teacher.doRegT)
 app.post("/regS",admin.doRegS)
 app.post("/regC",admin.doRegC)
+app.post("/TregC",teacher.doRegC)
 app.get('/logout', function(req, res){
     req.session.user = null;
     req.session.error = null;
