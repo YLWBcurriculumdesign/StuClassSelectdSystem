@@ -5,22 +5,26 @@
 }
 
 body{
-  background-color: #F0F4F9;
+  background-image: url("logo_2.png");
+  background-size:cover;
+  /*background-position: center center;*/
+  /*background-repeat:repeat-y;*/
+  /*background-repeat:repeat-x;*/
 }
 h1{
-  font-size: 2.5em;
+  font-size: 3.5em;
   font-style: italic;
-  letter-spacing: .1em;
+  letter-spacing: .3em;
   line-height: 60px;
   padding-bottom: 30px;
-    color: red;
+    color:#3cc4c4;
 }
-.bgImg{
-  width: 100%;
-  height:300px;
-  background-color: #282f39;
-  position: relative;
-}
+/*.bgImg{*/
+/*  width: 100%;*/
+/*  height:300px;*/
+/*  background-color: #282f39;*/
+/*  position: relative;*/
+/*}*/
 img{
   height: 300px;
   margin-left: 10%;
@@ -31,24 +35,24 @@ img{
   height: 380px;
   padding: 15px 25px;
   background-color: rgba(98,98,98,0.6);
-  float: left;
+  float:right;
+  margin-right:120px;
+  margin-top: 60px;
   }
 
 @media(min-width:992px){
   h1{
-    margin-left: 200px;
+    margin-left: 900px;
   }
-  .loginMain{
-    margin:-40px 0 0 20%;
-  }
+  /*.loginMain{*/
+  /*  margin:-40px 0 0 20%;*/
+  /*}*/
 }
 @media(max-width:992px){
   h1{
     text-align: center;
   }
-  .loginMain{
-    margin:-40px 0 0 5%;
-  }
+
 }
 p{
   margin:30px auto 5px;

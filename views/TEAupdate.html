@@ -29,7 +29,7 @@
         <li class="data_li">姓名：<input class="data_ip" type="text" name="stuname" id="teaname" value=<%= arr[i].Tname %>></li>
         <li class="data_li">工号：<input class="data_ip" type="text" disabled="true" id="tid" value=<%= user.username %>></li>
         <li class="data_li">性别：<input class="data_ip" type="text" name="stuname" id="teasex" value=<%= arr[i].Tsex %>></li>
-        <li class="data_li">介绍：<input class="data_ip" type="text" name="introduction" id="introduction" value=<%= arr[i].Introduction %>></li>
+        <li class="data_li">介绍：<textarea class="data_ipt" type="text" name="introduction" id="introduction" value=<%= arr[i].Introduction %>></textarea></li>
         <% } %>
         <li style="margin-top: 45px;margin-left: 175px">
             <button id="change" type="button" style="width:60px;height:35px;background-color: blueviolet; border-radius:3px;border: #afd9ee 1px solid ">修改</button>

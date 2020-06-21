@@ -139,9 +139,7 @@ function getStudent(session,callback) {
         if (err) throw err;
         connection.end();
         callback(result);
-
     });
-
 }
 exports.getStudent = getStudent;
 
