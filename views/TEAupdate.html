@@ -19,17 +19,17 @@
 
 
 <div class="main" >
-<div style="text-align:center;margin:0 auto;background: white;width: 300px;height: 400px;border-radius: 20px">
-    <p style="font-size: 20px;color: #2e6da4;margin-bottom: 50px">在这里更改你的个人信息：</p>
+<div>
+    <p>在这里更改你的个人信息：</p>
     <p style="font-size: 15px;margin-top: -30px;color:red;">(您被限制修改自己的工号！！)</p>
 
     <ul>
         <!--<%= user.username %>-->
         <% for(var i=0; i< arr.length; i++){ %>
-        <li class="data_li">姓名：<input class="data_ip" type="text" name="stuname" id="teaname" value=<%= arr[i].Tname %>></li>
-        <li class="data_li">工号：<input class="data_ip" type="text" disabled="true" id="tid" value=<%= user.username %>></li>
-        <li class="data_li">性别：<input class="data_ip" type="text" name="stuname" id="teasex" value=<%= arr[i].Tsex %>></li>
-        <li class="data_li">介绍：<textarea class="data_ipt" type="text" name="introduction" id="introduction" value=<%= arr[i].Introduction %>></textarea></li>
+        <li class="data_li"><label>姓名：</label><input class="data_ip" type="text" name="stuname" id="teaname" value=<%= arr[i].Tname %>></li>
+        <li class="data_li"><label>工号：</label><input style="color: white;" class="data_ip" type="text" disabled="true" id="tid" value=<%= user.username %>></li>
+        <li class="data_li"><label>性别：</label><input class="data_ip" type="text" name="stuname" id="teasex" value=<%= arr[i].Tsex %>></li>
+        <li class="data_li"><label>介绍：</label><textarea class="data_ipt" type="text" name="introduction" id="introduction" value=<%= arr[i].Introduction %>></textarea></li>
         <% } %>
         <li style="margin-top: 45px;margin-left: 175px">
             <button id="change" type="button" style="width:60px;height:35px;background-color: blueviolet; border-radius:3px;border: #afd9ee 1px solid ">修改</button>

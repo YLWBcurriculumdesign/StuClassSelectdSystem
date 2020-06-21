@@ -63,6 +63,27 @@ h1,h3 {
     padding-bottom: 30px;
     text-align: center;
 }
+
+.main div{
+    text-align:center;
+    margin:0 auto;
+    background: rgba(98,96,98,0.8);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.main div p{
+        font-size: 20px;
+        color: white;
+        margin-bottom: 50px;
+}
+
+.main div ul li label{
+    color: white;
+}
+
+
 /*.d div{*/
     /*text-align:center;padding-bottom: 30px;text-align:center;*/
 /*}*/
