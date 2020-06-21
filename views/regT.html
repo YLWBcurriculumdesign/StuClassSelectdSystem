@@ -69,6 +69,7 @@
     },function (data) {  // data是服务器向客户端返回的数据info
             if(data == "1"){
                 alert("添加成功")
+                window.location.href="/regT";
             }else if(data == "-2"){
                 alert("工号重复，请您重新输入！")
             }else{
