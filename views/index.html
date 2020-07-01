@@ -9,7 +9,6 @@
       <link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
-<%- message %>
   <h1>大学生网上选课系统</h1>
 <!--  <div class="bgImg">-->
 <!--    <img>-->
@@ -64,6 +63,7 @@
               $.ajax({
                   url:'index',
                   type:'POST',
+                  contentType:'application/x-www-form-urlencoded',
                   data:data,
                   success:function(data,status){ 
                       if(status == 'success'){
@@ -85,6 +85,7 @@
               $.ajax({
                   url:'index',
                   type:'POST',
+                  contentType:'application/x-www-form-urlencoded',
                   data:data,
                   success:function(data,status){
                       if(status == 'success'){
@@ -106,6 +107,7 @@
               $.ajax({
                   url:'index',
                   type:'POST',
+                  contentType:'application/x-www-form-urlencoded',
                   data:data,
                   success:function(data,status){
                       if(status == 'success'){

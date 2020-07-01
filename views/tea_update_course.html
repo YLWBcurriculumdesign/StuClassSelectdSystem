@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>选课主页</title>
@@ -12,116 +13,128 @@
     <script type="text/javascript" src="left-side-menu.js"></script>
 
 </head>
+
 <body>
 
-<div class ="top"  ><h1>恭喜<em style="color:red"><%= user.username %></em>，登陆成功！</h1></div>
-
-
-<div class="main"  >
-    <table>
-        <tr>
-            <th>课程编号</th>
-            <th>课程名称</th>
-            <th>课程类别</th>
-            <th>课程日期</th>
-            <th>课程时间</th>
-            <th>课程简介</th>
-            <th>选择</th>
-            <th>更改</th>
-            <!--<th>选择</th>-->
-        </tr>
-
-        <% for(var i=0; i< arr.length; i++){ %>
-
-        <tr>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid" type="text" id='cid<%=i %>' value=<%= arr[i].Cid %>></td>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cname" type="text" id='cname<%=i %>' value=<%= arr[i].Cname %>></td>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctype" type="text" id='ctype<%=i %>' value=<%= arr[i].Ctype %>></td>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cweek" type="text" id='cweek<%=i %>' value=<%= arr[i].Cweek %>></td>
-            <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctime" type="text" id='ctime<%=i %>' value=<%= arr[i].Ctime %>></td>
-            <td><input style="width: auto;border-radius: 4px;border: black 1px solid" class="Cintroduction" type="text" id='cintroduction<%=i %>' value=<%= arr[i].Cintroduction %>></td>
-            <td><input name='aa' type='checkbox'  value='<%=i%>' ></td>
-            <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px" type="button" id='btu<%=i %>' onclick="update_course()">更改</button></td>
-            <input type="text" style="visibility: hidden;" id="teaid" value=<%= user.username %>>
-        </tr>
-        <% } %>
-    </table>
-        <script>
-        function update_course() {
-            cc=document.getElementsByName("aa");
-            txt="";
-            for (i=0;i<cc.length;i++) {
-                if (cc[i].checked) {
-                    var Cid = "cid" + i;
-                    var Cname = "cname" + i;
-                    var Ctype = "ctype" + i;
-                    var Cweek = "cweek" + i;
-                    var Ctime = "ctime" + i;
-                    var Cintroduction = "cintroduction" + i;
-                    Cid=txt + document.getElementById(Cid).value
-                    Cname=txt + document.getElementById(Cname).value
-                    Ctype=txt + document.getElementById(Ctype).value
-                    Cweek=txt + document.getElementById(Cweek).value
-                    Ctime=txt + document.getElementById(Ctime).value
-                    Cintroduction=txt + document.getElementById(Cintroduction).value
-                    $.post("/tea_update_course", {
-                        "Cid": Cid,
-                        "Cname": Cname,
-                        "Ctype": Ctype,
-                        "Cweek": Cweek,
-                        "Ctime":Ctime,
-                        "Cintroduction": Cintroduction,
-                        "Tid": $("#teaid").val(),
-                    }, function (data) {  // data是服务器返回的数据
-                        if (data == "1") {
-                            alert("更改信息成功了~")
-                        } else {
-                            alert("更改信息失败了~")
-                        }
-                    });
-                }
-            }
-        }
-    </script>
-</div>
-
-<div class="left-side-menu" >
-    <div class="lsm-expand-btn">
-        <div class="lsm-mini-btn">
-            <label>
-                <input type="checkbox" checked="checked">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="30" />
-                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
-                    <path class="line--2" d="M0 50h80" />
-                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
-                </svg>
-            </label>
-
-        </div>
-        <!--        <input type="text">-->
+    <div class="top">
+        <h1>恭喜<em style="color:red"><%= user.username %></em>，登陆成功！</h1>
     </div>
 
-    <div class="lsm-container">
-        <div class="lsm-scroll" >
-            <div class="lsm-sidebar">
-                <ul>
-                    <li class="lsm-sidebar-item">
-                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>教师信息</span><i class="my-icon lsm-sidebar-more"></i></a>
-                        <ul>
-                            <li><a  href="/Teacher"><span>基本信息</span></a></li>
-                            <li><a href="./TEAupdate"><span>修改个人信息</span></a></li>
-                            <li><a href="./T_update_password"><span>修改密码</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="lsm-sidebar-item">
-                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>课程管理</span><i class="my-icon lsm-sidebar-more"></i></a>
-                        <ul>
-                            <li><a href="/Teacher_my_course"><span>我的课程</span></a></li>
-                            <li><a href="TregC"><span>发布课程</span></a></li>
-                            <li><a class="active" href="./tea_update_course"><span>修改课程</span></a></li>
-                            <li><a href="/Tea_delete_course"><span>删除课程</span></a></li>
-                            <!-- <li class="lsm-sidebar-item">
+
+    <div class="main">
+        <table>
+            <tr>
+                <th>课程编号</th>
+                <th>课程名称</th>
+                <th>课程类别</th>
+                <th>课程日期</th>
+                <th>课程时间</th>
+                <th>课程简介</th>
+                <th>选择</th>
+                <th>更改</th>
+                <!--<th>选择</th>-->
+            </tr>
+
+            <% for(var i=0; i< arr.length; i++){ %>
+
+            <tr>
+                <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" disabled="true" class="Cid"
+                        type="text" id='cid<%=i %>' value=<%= arr[i].Cid %>></td>
+                <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cname" type="text"
+                        id='cname<%=i %>' value=<%= arr[i].Cname %>></td>
+                <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctype" type="text"
+                        id='ctype<%=i %>' value=<%= arr[i].Ctype %>></td>
+                <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Cweek" type="text"
+                        id='cweek<%=i %>' value=<%= arr[i].Cweek %>></td>
+                <td><input style="width: 50px;border-radius: 4px;border: black 1px solid" class="Ctime" type="text"
+                        id='ctime<%=i %>' value=<%= arr[i].Ctime %>></td>
+                <td><input style="width: auto;border-radius: 4px;border: black 1px solid" class="Cintroduction"
+                        type="text" id='cintroduction<%=i %>' value=<%= arr[i].Cintroduction %>></td>
+                <td><input name='aa' type='checkbox' value='<%=i%>'></td>
+                <td><button style="background: #2e6da4;border-radius: 2px;border: #2e6da4 1px solid;width: 50px"
+                        type="button" id='btu<%=i %>' onclick="update_course()">更改</button></td>
+                <input type="text" style="visibility: hidden;" id="teaid" value=<%= user.username %>>
+            </tr>
+            <% } %>
+        </table>
+        <script>
+            function update_course() {
+                cc = document.getElementsByName("aa");
+                txt = "";
+                for (i = 0; i < cc.length; i++) {
+                    if (cc[i].checked) {
+                        var Cid = "cid" + i;
+                        var Cname = "cname" + i;
+                        var Ctype = "ctype" + i;
+                        var Cweek = "cweek" + i;
+                        var Ctime = "ctime" + i;
+                        var Cintroduction = "cintroduction" + i;
+                        Cid = txt + document.getElementById(Cid).value
+                        Cname = txt + document.getElementById(Cname).value
+                        Ctype = txt + document.getElementById(Ctype).value
+                        Cweek = txt + document.getElementById(Cweek).value
+                        Ctime = txt + document.getElementById(Ctime).value
+                        Cintroduction = txt + document.getElementById(Cintroduction).value
+                        $.post("/tea_update_course", {
+                            "Cid": Cid,
+                            "Cname": Cname,
+                            "Ctype": Ctype,
+                            "Cweek": Cweek,
+                            "Ctime": Ctime,
+                            "Cintroduction": Cintroduction,
+                            "Tid": $("#teaid").val(),
+                        }, function (data) {  // data是服务器返回的数据
+                            if (data == "1") {
+                                alert("更改信息成功了~")
+                            } else {
+                                alert("更改信息失败了~")
+                            }
+                        });
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <div class="left-side-menu">
+        <div class="lsm-expand-btn">
+            <div class="lsm-mini-btn">
+                <label>
+                    <input type="checkbox" checked="checked">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" />
+                        <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55" />
+                        <path class="line--2" d="M0 50h80" />
+                        <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45" />
+                    </svg>
+                </label>
+
+            </div>
+            <!--        <input type="text">-->
+        </div>
+
+        <div class="lsm-container">
+            <div class="lsm-scroll">
+                <div class="lsm-sidebar">
+                    <ul>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_1"></i><span>教师信息</span><i
+                                    class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Teacher"><span>基本信息</span></a></li>
+                                <li><a href="./TEAupdate"><span>修改个人信息</span></a></li>
+                                <li><a href="./T_update_password"><span>修改密码</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_2"></i><span>课程管理</span><i
+                                    class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="/Teacher_my_course"><span>我的课程</span></a></li>
+                                <li><a href="TregC"><span>发布课程</span></a></li>
+                                <li><a class="active" href="./tea_update_course"><span>修改课程</span></a></li>
+                                <li><a href="/Tea_delete_course"><span>删除课程</span></a></li>
+                                <!-- <li class="lsm-sidebar-item">
                                 <a href="javascript:;"><i class="my-icon lsm-sidebar-icon "></i><span>课程管理</span><i class="my-icon lsm-sidebar-more"></i></a>
                                 <ul >
                                     <li><a href="javascript:;"><span>正选</span></a></li>
@@ -129,24 +142,26 @@
                                 </ul>
                             </li> -->
 
-                        </ul>
-                    </li>
-                    <li class="lsm-sidebar-item">
-                        <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_3"></i><span>退出系统</span><i class="my-icon lsm-sidebar-more"></i></a>
-                        <ul>
-                            <li><a href="logout"><span>确认退出</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="lsm-sidebar-item">
+                            <a href="javascript:;"><i class="my-icon lsm-sidebar-icon icon_3"></i><span>退出系统</span><i
+                                    class="my-icon lsm-sidebar-more"></i></a>
+                            <ul>
+                                <li><a href="logout"><span>确认退出</span></a></li>
 
-                        </ul>
-                    </li>
-                </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+
     </div>
 
-</div>
-
-<div class="di" style="text-align:center;">
-    <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
-</div>
+    <div class="di" style="text-align:center;">
+        <p><a href="http://www.haust.edu.cn/" target="_blank">河南科技大学</a></p>
+    </div>
 </body>
+
 </html>

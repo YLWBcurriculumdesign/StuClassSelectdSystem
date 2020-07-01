@@ -1,4 +1,4 @@
-
+//js中，函数是基本的值类型之一，可以用于函数的参数
 function LOGIN(data,callback) {
     var mysql      = require('mysql');
     var connection = mysql.createConnection({

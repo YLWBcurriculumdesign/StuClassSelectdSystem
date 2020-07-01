@@ -10,9 +10,7 @@ function add(data,callback) {
     
     
     var  addSql = 'INSERT INTO course(Cid,Cname,Ctype,Cweek,Ctime,Cintroduction,Cteacher) VALUES(?,?,?,?,?,?,?)';
-    // var  addSqlParams = ['8888','王老师', "123456",'男', 'CN'];
     var addSqlParams = [data.cnumber,data.cname,data.ctype,data.cweek,data.ctime,data.cintroduction,data.cteacher];
-    
     
     //增
     connection.query(addSql,addSqlParams,function (err, result) {

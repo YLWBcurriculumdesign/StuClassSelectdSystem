@@ -4,8 +4,10 @@ let Tdb = require("../models/Tdb");
 exports.showIndex = (req,res)=>{
     res.render("index")
 };
-exports.dologin = (req,res)=>{
 
+exports.dologin = (req,res)=>{
+    console.log("运行了");
+    console.log(req.body);
     db.LOGIN(req.body,function(info){
         if (info == 1){
             var user ={
